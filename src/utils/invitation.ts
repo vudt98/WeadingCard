@@ -86,3 +86,22 @@ export function calendarUrl(event: WeddingEvent, couple: string) {
   });
   return `https://calendar.google.com/calendar/render?${params}`;
 }
+
+// Derive the month in the wedding timezone, then use UTC only for calendar math.
+export function calendarMonth(iso: string) {
+  const parts = numericDateParts(iso);
+  const year = Number(parts.year),
+    month = Number(parts.month);
+  const selectedDay = Number(parts.day);
+  const offset = (new Date(Date.UTC(year, month - 1, 1)).getUTCDay() + 6) % 7;
+  const count = new Date(Date.UTC(year, month, 0)).getUTCDate();
+  const cells: (number | null)[] = Array.from(
+    { length: Math.ceil((offset + count) / 7) * 7 },
+    (_, index) =>
+      index < offset || index >= offset + count ? null : index - offset + 1,
+  );
+  const weeks = Array.from({ length: cells.length / 7 }, (_, index) =>
+    cells.slice(index * 7, index * 7 + 7),
+  );
+  return { year, month, selectedDay, weeks };
+}

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import type { ReactNode } from "react";
 export function Reveal({
   children,
@@ -7,13 +7,14 @@ export function Reveal({
   children: ReactNode;
   className?: string;
 }) {
+  const reduced = useReducedMotion();
   return (
     <motion.div
       className={className}
-      initial={{ opacity: 0, y: 20 }}
+      initial={reduced ? false : { opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.12 }}
-      transition={{ duration: 0.7 }}
+      transition={{ duration: reduced ? 0 : 0.7 }}
     >
       {children}
     </motion.div>

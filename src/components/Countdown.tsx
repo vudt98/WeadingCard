@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { countdownParts } from "../utils/invitation";
+import { wedding } from "../config/wedding";
 export function Countdown({ date }: { date: string }) {
   const [parts, setParts] = useState(() => countdownParts(date));
   useEffect(() => {
@@ -10,11 +11,7 @@ export function Countdown({ date }: { date: string }) {
   const passed = new Date(date).getTime() <= Date.now();
   return (
     <div className="countdown-wrap">
-      <p>
-        {passed
-          ? "Ngày vui đã đến, cảm ơn bạn vì đã ở đây."
-          : "Đếm từng khoảnh khắc, chờ ngày mình chung đôi"}
-      </p>
+      <p>{passed ? wedding.copy.countdownPassed : wedding.copy.countdown}</p>
       <div
         className="countdown"
         role="timer"

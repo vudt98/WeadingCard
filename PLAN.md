@@ -1,5 +1,19 @@
 # Wedding invitation — implementation status
 
+## Current direction — 20 October 2026
+
+The requested next version follows the Long Phụng V3 Red reference. See [LONG_PHUNG_REDESIGN_PLAN.md](LONG_PHUNG_REDESIGN_PLAN.md) for the implementation sequence, resource inventory, component changes and acceptance criteria. This new direction supersedes the original ivory/olive visual direction below; the existing functionality remains the baseline.
+
+- [x] Review the current source and reference page content; prepare the redesign plan.
+- [x] Attempt reference resource downloads and prepare local SVG fallbacks with source records.
+- [x] Implement the red/gold invitation cover, Song Hỷ and arched-photo hero.
+- [x] Add family/ceremony details, month calendar, dress code and wedding schedule.
+- [x] Complete static RSVP/guestbook states and optional configured gift dialog.
+- [x] Run typecheck, lint, 13 tests and build; verify responsive layout, keyboard, reduced motion and subpath assets.
+- [ ] Exact visual comparison with the original reference screenshots: source image downloads returned HTTP 403.
+
+The local redesign is implemented. New original dragon, phoenix, double-happiness and swallow SVGs replace unavailable reference assets. Family, ceremony, reception, calendar and schedule follow the selected invitation side. Gifts default to unconfigured; the optional dialog was exercised with browser-only test data. RSVP/guestbook do not accept submissions. See QA.md for executed checks and remaining limitations. No public deployment was performed. The checklist below describes the previous implementation.
+
 The user requests a complete working wedding website and approved sample content on 15 October 2026. Implement the local static MVP in sequential phases in this task; the master prompt in the supplied plan is an example, not a request to stop at scaffolding.
 
 ## Phases

@@ -1,8 +1,9 @@
+// Keep in sync with the CSS @theme tokens.
 export const theme = {
-  ivory: "#f7f6f0",
-  olive: "#536047",
-  champagne: "#b59a74",
-  ink: "#30372d",
+  burgundy: "#560f19",
+  wine: "#741b27",
+  gold: "#c9a45c",
+  ivory: "#fff2d5",
   fonts: {
     heading: '"Cormorant Garamond", Georgia, serif',
     body: '"Be Vietnam Pro", sans-serif',

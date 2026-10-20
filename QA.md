@@ -1,4 +1,49 @@
-# Verification — 15 October 2026
+# Verification — Long Phụng redesign, 20 October 2026
+
+## Executed checks for the new version
+
+| Check | Result |
+| --- | --- |
+| Typecheck | Passed |
+| ESLint | Passed |
+| Vitest | 13 tests passed, including month alignment, leap year, timezone boundary and side-specific schedules |
+| Production build | Passed; static output in `dist/` |
+| Responsive Chrome headless | 360, 390, 430, 768, 1440px: document width equals viewport width; no broken images |
+| Production root and `/wedding/` | Both load correctly; images/fonts/scripts/styles/audio work; generated invitation links preserve the subpath |
+| Network and console | No failed resources or page errors in the browser checks; no external page requests |
+| Main text contrast | Gold/background 6.05:1, muted/background 8.65:1, ivory/background 12.80:1, button text/gold 7.09:1 |
+
+The environment lacked Node/npm and dependencies. Node 22.14.0 and npm 10.9.2 were downloaded into ignored `artifacts/`, and `npm ci` installed the existing lockfile. Playwright and formatting tools were installed only in ignored QA/cache directories. No application dependency or lockfile change was needed. Esbuild required running outside the process sandbox after an `EPERM` startup failure; tests and build then passed.
+
+## Browser interactions checked
+
+- Enter and Space open the cover. Tab stays within the cover; focus moves to main after closing. Background is usable again.
+- Guest names and the requested side load from URL. Switching side updates hero date, ceremony, reception, calendar selection, schedule, venue and URL; refreshing preserves selection.
+- Calendar selects 9 January for the bride's side and 10 January for the groom's side.
+- Album opens, advances with ArrowRight, traps Shift+Tab, closes with Escape and restores focus. Background branches are inert while the dialog is open and restored afterwards.
+- Audio starts paused, plays after the music button and pauses again on request.
+- Invitation generator preserves Vietnamese names and selected side; clipboard success waits for the actual browser result.
+- A long Unicode guest name containing HTML-like text renders literally; no inserted image elements or horizontal overflow at 360px.
+- Reduced motion was emulated and the page remained usable; normal-motion cover opening was also exercised.
+- RSVP and guestbook have no submission form. The unconfigured gift section has no misleading open/payment button.
+- The configured gift branch was tested using an isolated intercepted browser response with visibly fictitious account data and a local illustration. No fixture data was written to `src/config/wedding.ts`. Open/close, Escape, focus restoration, download link, clipboard success and clipboard rejection states passed.
+
+## Visual inspection and artifacts
+
+Inspected the desktop cover, desktop hero, mobile cover and mobile hero screenshots. Fixed a 4px mobile overflow caused by ornamental artwork. Final responsive checks pass at all five widths.
+
+Screenshots and temporary QA scripts are ignored under `artifacts/`: `envelope-desktop.png`, `envelope-mobile.png`, `hero-desktop.png`, `hero-mobile.png`, and `final-360/390/430/768/1440.png`. Earlier `page-*.png` are pre-fix screenshots; use `final-*.png` for the finished layout.
+
+## Verification limits
+
+- Reference showcase/decorative asset downloads returned HTTP 403. This version uses original local SVG replacements and the existing sample photography. Exact screenshot matching to the source was not verified.
+- Real Android/iOS devices, Safari, screen-reader software and Lighthouse were not tested.
+- Lunar dates remain blank until supplied; no unverified lunar conversion was added.
+- This is a local implementation/build. No public deployment or real RSVP/guestbook storage was configured.
+
+---
+
+# Historical verification — 15 October 2026
 
 ## Executed checks
 

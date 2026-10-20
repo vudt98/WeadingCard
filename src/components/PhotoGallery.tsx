@@ -56,8 +56,8 @@ function Lightbox({ initial, close }: { initial: number; close: () => void }) {
           alt={wedding.galleryImages[index].alt}
         />
         <figcaption aria-live="polite">
-          {index + 1} / {wedding.galleryImages.length} · Một chút kỷ niệm, một
-          đời thương
+          {index + 1} / {wedding.galleryImages.length} ·{" "}
+          {wedding.copy.galleryCaption}
         </figcaption>
       </figure>
       <button
@@ -78,10 +78,8 @@ export function PhotoGallery() {
       <Reveal>
         <div className="gallery-heading">
           <div>
-            <span className="eyebrow">OUR LITTLE MEMORIES</span>
-            <h2>
-              Thương từng <em>khoảnh khắc</em>
-            </h2>
+            <span className="eyebrow">{wedding.copy.albumSubtitle}</span>
+            <h2>{wedding.copy.albumTitle}</h2>
           </div>
           <button className="text-link" onClick={() => setSelected(0)}>
             Mở album ảnh <ArrowUpRight size={18} />
@@ -108,10 +106,7 @@ export function PhotoGallery() {
             </button>
           ))}
         </div>
-        <p className="gallery-footnote">
-          Những bức ảnh minh họa cho một câu chuyện chờ được viết bằng kỷ niệm
-          của bạn.
-        </p>
+        <p className="gallery-footnote">{wedding.copy.albumNote}</p>
       </Reveal>
       {selected !== null && <Lightbox initial={selected} close={close} />}
     </section>
