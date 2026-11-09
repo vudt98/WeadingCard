@@ -6,3 +6,22 @@ dist/
 !.env.example
 *.tsbuildinfo
 artifacts/
+
+# Saved template pages and local resource investigations (not application source).
+/*.html
+!/index.html
+/*_files/
+/download.devtools
+/website-resources.json
+/wedding-resources.json
+/ANIMATION_REFERENCE.md
+/NOI_DUNG_THIEP.md
+/RESOURCE_AUDIT.md
+/SLIDESHOW_AUDIT.md
+/UI_UX_IMPROVEMENT_PLAN.md
+/scripts/check-animations.mjs
+
+# Unused local assets; exclude from the deployment source package.
+/public/audio/i-do.mp3
+/public/crimson/fonts/marmelad-regular.woff2
+/public/crimson/asset-sources.json

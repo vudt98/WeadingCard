@@ -1,0 +1,40 @@
+/* Entrance geometry verified against the template's d7c00117a2bd31e5.css.
+   Percent translations follow each element's own box, as in the reference.
+   Native keyframes preserve its per-property zoom timing exactly. */
+@keyframes elegance-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes elegance-fadeInUp {
+  from { opacity: 0; transform: translate3d(0, 100%, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes elegance-fadeInUpSmall {
+  from { opacity: 0; transform: translate3d(0, 20px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes elegance-fadeInDown {
+  from { opacity: 0; transform: translate3d(0, -100%, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes elegance-fadeInLeft {
+  from { opacity: 0; transform: translate3d(-100%, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes elegance-fadeInRight {
+  from { opacity: 0; transform: translate3d(100%, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+@keyframes elegance-zoomIn {
+  from { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+  50% { opacity: 1; }
+}
+@keyframes elegance-pulse {
+  from, to { transform: scale3d(1, 1, 1); }
+  50% { transform: scale3d(1.05, 1.05, 1.05); }
+}
+/* C141 flip-in: saved 1017-9d0a7ebd29f36b0a.js transition endpoints. */
+@keyframes elegance-flipIn {
+  from { opacity: 0; transform: perspective(400px) rotateY(90deg); }
+  to { opacity: 1; transform: none; }
+}

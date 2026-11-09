@@ -1,7 +1,7 @@
 import { BookHeart, Shirt } from "lucide-react";
 import { wedding, type WeddingEvent } from "../config/wedding";
 import { Reveal } from "./Reveal";
-import { LongPhungDecoration, Ornament } from "./LongPhungDecoration";
+import { Ornament } from "./LongPhungDecoration";
 
 export function DressCode() {
   if (!wedding.dressCode.length) return null;
@@ -9,8 +9,8 @@ export function DressCode() {
     <section className="dress-section section-shell">
       <Reveal>
         <Shirt size={28} strokeWidth={1} />
-        <span className="eyebrow">DRESS CODE</span>
-        <h2>Một chút đồng điệu</h2>
+        <span className="eyebrow">{wedding.ui.dressCodeLabel}</span>
+        <h2>{wedding.ui.dressCodeTitle}</h2>
         <p className="section-description">{wedding.copy.dressCodeText}</p>
         <div className="dress-colors">
           {wedding.dressCode.map((item) => (
@@ -33,9 +33,8 @@ export function WeddingSchedule({ event }: { event: WeddingEvent }) {
     <section className="schedule-section section-shell" id="lich-trinh">
       <Reveal>
         <div className="section-heading">
-          <LongPhungDecoration kind="swallow" />
-          <span className="eyebrow">NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ</span>
-          <h2>Lịch trình ngày vui</h2>
+          <span className="eyebrow">{wedding.ui.scheduleLabel}</span>
+          <h2>{wedding.ui.scheduleTitle}</h2>
           <p>{event.title}</p>
         </div>
         <ol className="schedule">
@@ -61,7 +60,7 @@ export function Guestbook() {
   return (
     <section className="guestbook-section section-shell">
       <Reveal>
-        <span className="eyebrow">SỔ LƯU BÚT</span>
+        <span className="eyebrow">{wedding.ui.guestbookLabel}</span>
         <h2>{wedding.copy.guestbookTitle}</h2>
         <p className="section-description">{wedding.copy.guestbookText}</p>
         <div className="guestbook-paper">

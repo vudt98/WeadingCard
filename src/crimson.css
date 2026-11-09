@@ -1,0 +1,248 @@
+﻿/* Adapted from the supplied Crimson Elegance HTML/CSS: #7d1f2a,
+   500px feed, local display fonts, 20px event cards, triptych and photo grid.
+   Layout uses normal flow so configured text and small screens can reflow. */
+:root {
+  --font-heading: "Alisheia", "Cormorant Garamond", Georgia, serif;
+  --font-body: "Lora Regular", "Be Vietnam Pro", Georgia, serif;
+  color: #7d1f2a;
+  background: #f3efec;
+  color-scheme: light;
+}
+:focus-visible { outline-color: #7d1f2a; }
+html, body, #root { height: 100%; overflow: hidden; }
+html { scroll-padding-top: 0; }
+body { min-width: 0; }
+.crimson-card {
+  position: relative;
+  width: min(100%, 480px);
+  height: 100vh;
+  height: 100dvh;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 50px #42212915;
+  --muted: #79545b;
+  --line: #7d1f2a35;
+  --gold: #7d1f2a;
+  --color-burgundy: #7d1f2a;
+  --color-ivory: #fff;
+  color: #7d1f2a;
+  font-family: var(--font-body);
+  font-synthesis: weight;
+}
+.crimson-content { height: 100%; }
+@media (min-width: 768px) {
+  .crimson-card { width: min(100%, 900px); }
+}
+.invitation-scroll {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior-y: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #7d1f2a80 #f3efec;
+  scroll-behavior: smooth;
+}
+.intro :focus-visible, .crimson-date-card :focus-visible, .crimson-calendar :focus-visible, .lightbox :focus-visible { outline-color: #f0d497; }
+.envelope-open { font-family: "VIP Brisca", var(--font-heading); font-weight: 700; font-synthesis: weight; }
+.crimson-page {
+  overflow-x: clip;
+  container-type: inline-size;
+  width: 100%;
+  background: white;
+  color: #7d1f2a;
+  font-family: var(--font-body);
+  /* The reference uses regular font files with browser-synthesized bold. */
+  font-synthesis: weight;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.crimson-page h2, .crimson-page h3 { color: inherit; }
+.crimson-page .section-shell { padding: 38px 22px; }
+.crimson-page .eyebrow { color: #7d1f2a; font-size: 10px; }
+.crimson-page .section-description { color: #79545b; font-size: 14px; line-height: 1.7; }
+.crimson-page .ornament, .crimson-page .long-phung { display: none; }
+.crimson-page .button.primary { color: white; background: #7d1f2a; border-color: #7d1f2a; }
+.crimson-page .text-link { color: inherit; white-space: normal; }
+.reveal-content { min-width: 0; }
+.crimson-banner-photo > .reveal-content,
+.gallery-item > .reveal-content { height: 100%; }
+.crimson-script { font-family: "Luxurious Script", var(--font-heading); font-weight: 400; }
+.crimson-hero { padding: 10.466cqw 1.162cqw 7.534cqw; text-align: center; }
+.crimson-hero h1 { font-family: "Ergisa", var(--font-heading); font-size: 6cqw; line-height: 1.5; text-transform: uppercase; overflow-wrap: anywhere; }
+.crimson-hero h1 span { white-space: nowrap; }
+.crimson-hero > [data-reveal-trigger] { width: 100cqw; margin-inline: -1.162cqw; }
+.crimson-announcement-wrap { margin-top: -0.628cqw; margin-bottom: 7.128cqw; }
+.crimson-announcement { font-size: 8.4cqw; line-height: 1.2; margin: 0; }
+.crimson-triptych { display: grid; grid-template-columns: 151fr 163fr 151fr; align-items: center; gap: 2.322cqw; }
+.crimson-triptych img { width: 100%; height: auto; aspect-ratio: 151 / 233; object-fit: cover; }
+.crimson-triptych img:nth-child(2) { aspect-ratio: 163 / 279; }
+.crimson-save-wrap { margin-top: 4.316cqw; }
+.crimson-save { font-size: 10.4cqw; line-height: 1.5; margin: 0; }
+.crimson-date-wrap { margin-top: -1.994cqw; }
+.crimson-hero-date { font-family: "Ergisa", var(--font-heading); font-size: 8.2cqw; line-height: 1.5; margin: 0; }
+.crimson-countdown-banner { position: relative; aspect-ratio: 500 / 407; }
+.crimson-banner-photo { width: 100%; height: 100%; }
+.crimson-banner-photo img { width: 100%; height: 100%; object-fit: cover; }
+.crimson-countdown-content { position: absolute; isolation: isolate; top: 26.794cqw; width: 100%; min-height: 32.6cqw; padding: 1.376cqw 3.6cqw 1.694cqw; text-align: center; color: white; }
+.crimson-countdown-tint { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.crimson-countdown-tint > .reveal-content { height: 100%; background: rgb(125 31 42 / 75.69%); }
+.crimson-countdown-quote { width: 100cqw; margin-inline: -3.6cqw; font-family: "Alisheia", var(--font-heading); font-size: 4cqw; white-space: pre-line; line-height: 1.5; }
+.crimson-countdown-content .countdown-wrap > p { display: none; }
+.crimson-countdown-content .countdown { position: relative; left: 0.22cqw; width: 75cqw; max-width: 100%; height: 17cqw; margin: 0.53cqw auto 0; gap: 0.2cqw; }
+.crimson-countdown-content .countdown > div { display: flex; flex-direction: column; align-items: center; justify-content: center; border: 0; padding: 0; min-width: 0; }
+.crimson-countdown-content .countdown strong { color: white; font-family: var(--font-body); font-size: 4.6cqw; line-height: 1.5; }
+.crimson-countdown-content .countdown span { color: white; font-size: 4.6cqw; line-height: 1.5; letter-spacing: 0; margin-top: 0; text-transform: lowercase; }
+.crimson-invitation { padding: 32px 18px 20px; text-align: center; }
+.crimson-invitation-intro { text-transform: uppercase; font-size: clamp(16px, 4.2cqw, 21px); font-weight: 700; line-height: 1.5; }
+.crimson-guest { margin: 24px 0 30px; }
+.crimson-guest > span { display: block; font-size: 12px; }
+.crimson-guest strong { display: block; font-family: "Ergisa", var(--font-heading); font-size: 26px; margin-top: 8px; overflow-wrap: anywhere; }
+.crimson-families { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.crimson-families h2 { font-family: var(--font-body); font-size: clamp(14px, 3.2cqw, 16px); font-weight: 700; line-height: 1.5; text-transform: uppercase; margin-bottom: 10px; }
+.crimson-families p { font-size: clamp(12px, 3.2cqw, 16px); overflow-wrap: anywhere; }
+.crimson-events { padding: 0 17px 16px; }
+.crimson-side-switch { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 12px 0 26px; }
+.crimson-side-switch button { background: white; color: #7d1f2a; border: 1px solid #7d1f2a; border-radius: 999px; padding: 9px 20px; min-height: 44px; font-size: 13px; }
+.crimson-side-switch button[aria-pressed="true"] { background: #7d1f2a; color: white; }
+.crimson-date-card { border-radius: 20px; background: #7d1f2a; color: white; text-align: center; padding: 24px 18px 28px; margin-bottom: 38px; }
+.crimson-date-card h3 { font-family: var(--font-body); font-size: clamp(18px, 4.6cqw, 23px); text-transform: uppercase; line-height: 1.5; font-weight: 700; }
+.crimson-time { margin-top: 10px; font-size: 18px; }
+.crimson-time span { font-size: 14px; text-transform: capitalize; }
+.crimson-date-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px; margin: 8px 0; text-transform: uppercase; }
+.crimson-date-row span { font-size: clamp(14px, 4.6cqw, 23px); }
+.crimson-date-row strong { font-family: "Alisheia", var(--font-heading); font-size: clamp(66px, 18.6cqw, 93px); line-height: 1.15; font-weight: 400; }
+.crimson-lunar { font-size: 13px; font-style: italic; margin: 10px 0; }
+.crimson-date-card h4 { font-family: var(--font-body); font-weight: 700; text-transform: uppercase; font-size: clamp(17px, 4.2cqw, 21px); margin: 15px 0 8px; overflow-wrap: anywhere; }
+.crimson-address { font-size: clamp(15px, 3.8cqw, 19px); line-height: 1.5; }
+.crimson-map-link { display: inline-flex; gap: 7px; justify-content: center; align-items: center; min-height: 44px; background: white; color: #7d1f2a; padding: 9px 24px; margin-top: 18px; font-size: clamp(15px, 3.8cqw, 19px); border-radius: 999px; }
+.crimson-calendar { position: relative; isolation: isolate; color: white; margin-inline: -17px; padding: 8px 20px 28px; text-align: center; }
+.crimson-calendar .wedding-calendar { width: 100%; table-layout: fixed; border-spacing: 0; color: white; }
+.crimson-calendar .calendar-title { font-family: "Luxurious Script", var(--font-heading); font-size: 48px; color: white; text-align: center; margin-bottom: 10px; }
+.crimson-calendar .calendar-title span { font-family: var(--font-body); font-size: 15px; }
+.crimson-calendar .wedding-calendar th { color: white; font-size: 14px; padding: 10px 0; }
+.crimson-calendar .wedding-calendar td { padding: 6px 0; font-size: 15px; }
+.crimson-calendar .wedding-calendar td span { width: 34px; height: 34px; }
+.crimson-calendar .wedding-calendar .selected-day { background: var(--calendar-heart) center / contain no-repeat; color: white; outline: 0; border-radius: 0; font-weight: 600; }
+.crimson-calendar .wedding-calendar .calendar-sunday,
+.crimson-calendar .wedding-calendar .calendar-sunday > span { color: var(--calendar-sunday); }
+.crimson-calendar > a { margin-top: 16px; font-size: 12px; }
+.crimson-story { padding: 2.268cqw 0 11.19cqw; }
+.crimson-story h2 { font-size: 12cqw; text-align: center; line-height: 1.5; margin: 0 0 2.466cqw; }
+.crimson-story-row { display: grid; grid-template-columns: 46.6cqw 46.6cqw; align-items: start; gap: 2.236cqw; margin-inline: 2.326cqw; }
+.crimson-story-portrait { min-width: 0; }
+.crimson-story-photo img { width: 100%; height: auto; aspect-ratio: 233 / 256; object-fit: cover; }
+.crimson-story-text { width: 43cqw; }
+.crimson-story-row-0 .crimson-story-text { margin: 5cqw 0 0 1.164cqw; }
+.crimson-story-row-1 { margin-top: -16.484cqw; }
+.crimson-story-row-1 > .crimson-story-portrait { grid-column: 2; grid-row: 1; }
+.crimson-story-row-1 > .crimson-story-text { grid-column: 1; grid-row: 1; margin: 20.466cqw 0 0 2.326cqw; }
+.crimson-story-copy { font-size: max(10px, 3cqw); line-height: 1.5; text-align: justify; }
+.crimson-story-row .crimson-role { font-size: 6.6cqw; text-align: center; margin-top: 2.056cqw; line-height: 1; }
+.crimson-story-row-1 .crimson-role { margin-top: 3.568cqw; }
+.crimson-story-row h3 { font-family: "Alisheia", var(--font-heading); font-size: 6.6cqw; text-transform: uppercase; text-align: center; line-height: 1; margin-top: 0.958cqw; overflow-wrap: anywhere; }
+.crimson-page .gallery-section { padding: 0 0 0; }
+.crimson-page .gallery-grid { display: block; position: relative; }
+.crimson-page .gallery-heading { position: absolute; inset: 0; z-index: 2; pointer-events: none; margin: 0; }
+.crimson-page .gallery-title { position: absolute; left: 45.348%; top: 43.256cqw; width: 46.6%; }
+.crimson-page .gallery-script { position: absolute; left: 31.396%; top: 67.442cqw; width: 32.6%; }
+.crimson-page .gallery-heading h2 { font-family: "Alisheia", var(--font-heading); font-size: 14.8cqw; margin: 0; color: white; text-align: right; text-shadow: 0 2px 4px #0004; text-transform: uppercase; line-height: 1; }
+.crimson-page .gallery-heading .eyebrow { font-family: "HoaTay1", "Luxurious Script", cursive; font-size: 14cqw; text-align: center; color: #7d1f2a; text-transform: none; letter-spacing: 0; font-weight: 400; line-height: 1.5; }
+.crimson-page .gallery-item { position: absolute; border: 0; padding: 0; margin: 0; }
+.crimson-page .gallery-photo-button { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: transparent; overflow: hidden; }
+.crimson-page .gallery-item:nth-child(even) { margin-top: 0; }
+.crimson-page .gallery-item img { aspect-ratio: auto; height: 100%; width: 100%; object-fit: cover; }
+.crimson-page .gallery-footnote { font-size: 11px; line-height: 1.7; margin-top: 14px; }
+.crimson-page .rsvp-section { padding: 6.726cqw 0 0; text-align: center; }
+.crimson-page .rsvp-section .section-description { max-width: none; font-size: 3.8cqw; line-height: 1.5; color: #7d1f2a; white-space: pre-line; margin: 0; }
+.crimson-rsvp-status { width: 87.28%; margin: 3.19cqw 0 0 6.44%; }
+.crimson-page .rsvp-section h2, .crimson-page .guestbook-section h2, .crimson-page .gift-section h2, .crimson-page .crimson-extras h2 { font-family: var(--font-heading); font-size: 30px; line-height: 1.3; margin: 12px 0; }
+.crimson-page .availability-note { display: flex; flex-direction: column; justify-content: center; background: white; color: #333; border: 1px solid #e0e0e0; box-shadow: 0 0 10px #0008; border-radius: 5px; padding: 3.2cqw; margin: 0; min-height: 70cqw; }
+.crimson-page .availability-note strong { font-size: 3.8cqw; font-weight: 700; color: #333; }
+.crimson-page .availability-note p { font-size: 3cqw; color: #666; }
+.crimson-page .gift-section { background: white; border: 0; padding: 5.25cqw 0 5.248cqw; }
+.crimson-page .gift-box { display: block; width: 91.8%; min-height: 0; margin: 0 0 0 3.91%; padding: 0; border: 0; border-radius: 100px; background: #7d1f2a; color: white; font-size: 3.2cqw; line-height: 2.8; }
+.crimson-page .gift-box:hover { background: #7d1f2a; }
+.crimson-page .gift-box:disabled { opacity: 1; cursor: default; }
+.crimson-page .guestbook-section { padding-top: 22px; }
+.crimson-page .guestbook-paper { background: #fbf7f5; color: #7d1f2a; padding: 25px 20px; border-color: #7d1f2a25; }
+.crimson-page .guestbook-paper::before, .crimson-page .guestbook-paper::after { display: none; }
+.crimson-page .guestbook-paper p { color: #79545b; font-size: 13px; }
+.crimson-page .guestbook-paper strong { font-size: 15px; }
+.crimson-page .paper-signature { color: #7d1f2a; }
+.crimson-extras { border-top: 1px solid #7d1f2a25; padding: 20px; }
+.crimson-extras > summary { text-align: center; cursor: pointer; padding: 12px; min-height: 44px; }
+.crimson-extras .section-shell { padding: 24px 0; background: white; }
+.crimson-page .schedule li { grid-template-columns: 45px 25px 1fr; gap: 10px; }
+.crimson-page .schedule h3 { font-size: 20px; }
+.crimson-page .schedule p, .crimson-page .schedule time { color: #79545b; }
+.crimson-page .schedule-dot { color: #7d1f2a; border-color: #7d1f2a; background: white; }
+.crimson-footer { position: relative; isolation: isolate; min-height: 73.21cqw; }
+.crimson-footer-photo { position: absolute; inset: 0 0 0.21cqw; z-index: -2; }
+.crimson-footer-photo > .reveal-content { height: 100%; }
+.crimson-footer-photo img { width: 100%; height: 100%; object-fit: cover; }
+.crimson-footer-copy { position: relative; color: white; text-align: center; padding-top: 31.396cqw; }
+.crimson-calendar-tint, .crimson-footer-tint { position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.crimson-calendar-tint > .reveal-content, .crimson-footer-tint > .reveal-content { width: 100%; height: 100%; }
+.crimson-calendar-tint > .reveal-content { background: #7d1f2a; }
+.crimson-footer-tint { top: 32.21cqw; }
+.crimson-footer-tint > .reveal-content { background: linear-gradient(transparent 0%, rgb(0 0 0 / 85%) 100%); }
+.crimson-footer .crimson-script { font-family: "UTM Edwardian", "Luxurious Script", cursive; font-size: 9.4cqw; line-height: 1.5; margin: 0; }
+.crimson-thank-you-wrap { width: 94.2%; margin: 0.142cqw 0 0 2.906%; }
+.crimson-footer .crimson-thank-you { font-size: 3.2cqw; line-height: 1.5; margin: 0; }
+.crimson-tools { padding: 24px 18px 100px; text-align: center; }
+.crimson-tools > p { font-size: 11px; color: #79545b; }
+.crimson-page .invitation-generator { margin-top: 10px; color: #79545b; }
+.crimson-page .generator-fields { grid-template-columns: 1fr; }
+.crimson-page .invitation-generator input, .crimson-page .invitation-generator select { color: #7d1f2a; background: white; }
+.crimson-overlays .lightbox { color: white; }
+.crimson-overlays .lightbox figcaption { color: #f5e7dc; }
+.crimson-overlays .lightbox .icon-button { color: white; }
+.crimson-overlays .gift-dialog { color: #7d1f2a; background: white; }
+.crimson-card .music-player { position: absolute; z-index: 55; right: 3px; top: max(3px, env(safe-area-inset-top)); bottom: auto; color: white; }
+.crimson-card .music-button { position: relative; width: 44px; height: 44px; min-height: 44px; padding: 7px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: white; box-shadow: none; }
+.music-disc { display: block; width: 30px; height: 30px; border-radius: 50%; overflow: hidden; background: #7d1f2a; }
+.music-disc img { display: block; width: 100%; height: 100%; }
+.music-off-mark { position: absolute; inset: 7px; border-radius: 50%; overflow: hidden; }
+.music-off-mark::after { content: ""; position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background: white; transform: rotate(45deg); }
+.crimson-card .music-player > p { position: absolute; top: 44px; right: 7px; width: 220px; margin: 0; color: #7d1f2a; background: white; box-shadow: 0 2px 10px #42212925; }
+@keyframes crimson-disc-rotate { to { transform: rotate(1turn); } }
+.auto-scroll-control {
+  position: absolute;
+  z-index: 50;
+  top: max(10px, env(safe-area-inset-top));
+  left: 10px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #f0d497;
+  border-radius: 50%;
+  color: white;
+  background: #7d1f2a;
+  box-shadow: 0 2px 10px #42212925;
+  transition: opacity 0.18s;
+}
+.auto-scroll-control.is-scrolling:not(:focus-visible) { opacity: 0; pointer-events: none; }
+.auto-scroll-control:hover { background: #9c3541; }
+.auto-scroll-control:focus-visible { outline: 3px solid #7d1f2a; outline-offset: 3px; }
+.auto-scroll-control:disabled { cursor: default; opacity: 0.65; }
+@keyframes elegance-continuous-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .music-button.playing .music-disc { animation: crimson-disc-rotate 5s linear infinite; }
+  .crimson-pulse { animation: elegance-continuous-pulse 1s 0.5s ease-in-out infinite; }
+  .crimson-pulse:is(:hover, :focus-visible) { animation-play-state: paused; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .invitation-scroll { scroll-behavior: auto; }
+  .auto-scroll-control { transition: none; }
+  [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
+}
+@media (max-width: 360px) {
+  .crimson-overlays .lightbox { padding: 45px 8px; gap: 4px; }
+  .crimson-overlays .lightbox figure img { max-width: 72vw; }
+}

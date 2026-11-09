@@ -20,7 +20,7 @@ export function Countdown({ date }: { date: string }) {
         {parts.map((value, i) => (
           <div key={i}>
             <strong>{String(value).padStart(2, "0")}</strong>
-            <span>{["NGÀY", "GIỜ", "PHÚT", "GIÂY"][i]}</span>
+            <span>{wedding.ui.countdownUnits[i]}</span>
           </div>
         ))}
       </div>

@@ -12,6 +12,8 @@ import "@fontsource/cormorant-garamond/latin-400-italic.css";
 import "@fontsource/cormorant-garamond/vietnamese-400-italic.css";
 import App from "./App";
 import "./styles.css";
+import "./crimson.css";
+import "./magazine.css";
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <App />

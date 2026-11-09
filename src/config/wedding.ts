@@ -1,4 +1,7 @@
+import content from "./wedding-content.json";
+
 export type WeddingSide = "nhatrai" | "nhagai";
+export type WeddingAnimation = "none" | "fadeIn" | "fadeInUp" | "fadeInUpSmall" | "fadeInDown" | "fadeInLeft" | "fadeInRight" | "zoomIn" | "flipIn" | "pulse";
 export interface WeddingEvent {
   title: string;
   dateTimeISO: string;
@@ -18,194 +21,148 @@ export interface WeddingGiftAccount {
 }
 export const asset = (path: string) => `${import.meta.env.BASE_URL}${path}`;
 
-// All names, dates, venues and stories are illustrative. Replace before sending.
+// Editable wedding information and copy are loaded from wedding-content.json.
+const giftAccounts: WeddingGiftAccount[] = content.gifts;
 export const wedding = {
-  isDemo: true,
-  groomName: "Minh Anh",
-  brideName: "Khánh Linh",
-  monogram: "A & L",
-  signature: "Anh & Linh",
-  hashtag: "#AnhLinhWedding",
+  autoScroll: {
+    enabled: true,
+    autoStartAfterOpen: false,
+    pixelsPerSecond: 60,
+    startDelayMs: 2000,
+    controlIdleDelayMs: 800,
+    ...content.autoScrollLabels,
+  },
+  calendar: {
+    sundayColor: "#ffc300",
+    ...content.calendar,
+  },
+  countdown: content.countdown,
+  musicSettings: {
+    albumErrorMessage: "Chưa phát được nhạc album. Thiệp đang thử tiếp tục nhạc nền; bạn có thể dùng nút nhạc để phát lại.",
+    icon: asset("images/music/music-4.png"),
+    autoPlayAfterOpen: true,
+    volume: 0.28,
+    openingFadeInMs: 2500,
+    albumFadeInMs: 1200,
+    backgroundFadeInMs: 1500,
+    ...content.musicLabels,
+  },
+  // Hiệu ứng từ preview_Elegance .html; thời gian tính bằng giây.
+  animation: {
+    duration: 1.5,
+    delay: 0.5,
+    viewportInsetPx: 50,
+    visibleAmount: 0.1,
+    gallery: ["fadeInUp", "fadeInLeft", "fadeInRight", "fadeInLeft", "fadeInRight", "fadeInUp", "fadeInDown", "fadeInUp", "fadeInDown"] as WeddingAnimation[],
+  },
+  ui: content.ui,
+  isDemo: content.isDemo,
+  groomName: content.groomName,
+  brideName: content.brideName,
+  monogram: content.monogram,
+  signature: content.signature,
+  hashtag: content.hashtag,
   copy: {
-    invitation: "Trân trọng kính mời",
-    opening: "Một lời hẹn, một đời bên nhau",
-    invitationText:
-      "đến chung vui cùng gia đình chúng mình trong ngày nên duyên.",
-    heroQuote: "Từ đây, hai tiếng chúng mình\nđã thành một tiếng trăm năm.",
-    albumTitle: "Ngày mình có nhau",
-    albumSubtitle: "Gói ghém một chút yêu thương",
-    albumNote:
-      "Ảnh minh họa cho một câu chuyện chờ được viết bằng kỷ niệm của bạn.",
-    galleryCaption: "Một chút kỷ niệm, một đời thương",
-    eventIntro: "Sự hiện diện của bạn là niềm hạnh phúc của chúng mình.",
-    countdown: "Cùng đếm từng khoảnh khắc",
-    countdownPassed: "Ngày vui đã đến, cảm ơn bạn vì đã ở đây.",
-    rsvpTitle: "Hẹn bạn ngày chung đôi",
-    rsvpText:
-      "Một cái ôm, một lời chúc, một nụ cười của bạn. Thế là ngày vui của chúng mình đã trọn vẹn.",
-    rsvpStatus: "Xác nhận tham dự sẽ sớm mở",
-    rsvpNote:
-      "Thiệp mẫu chưa nhận hoặc lưu phản hồi. Thông tin liên hệ sẽ được bổ sung khi có thiệp chính thức.",
-    guestbookTitle: "Đôi lời thương gửi",
-    guestbookText: "Có những lời chúc sẽ theo chúng mình suốt một đời.",
-    guestbookStatus: "Sổ lưu bút sẽ sớm mở",
-    guestbookNote: "Chúng mình chưa tiếp nhận lời chúc trên bản thiệp mẫu này.",
-    giftTitle: "Gửi chút yêu thương",
-    giftText: "Bạn đến chung vui đã là món quà quý giá nhất.",
-    giftEmpty: "Thông tin quà mừng sẽ được cập nhật trên thiệp chính thức.",
-    thankYou: "Cảm ơn vì đã là một phần\ntrong ngày hạnh phúc của chúng mình.",
-    demoNote: "Thiệp mẫu · Thông tin & hình ảnh minh họa",
-    dressCodeText:
-      "Một chút đồng điệu, cho ngày vui thêm trọn vẹn. Bạn có thể chọn trang phục với những sắc màu dưới đây.",
+    ...content.copy,
+    rsvpText: "",
+    rsvpStatus: "Xác nhận trực tuyến chưa mở",
+    rsvpNote: "Thiệp hiện chưa tiếp nhận hoặc lưu phản hồi tham dự.",
   },
-  families: {
-    nhatrai: {
-      label: "Nhà trai",
-      father: "Ông Nguyễn Minh Đức",
-      mother: "Bà Trần Ngọc Mai",
-      address: "TP. Hồ Chí Minh",
-      fullName: "Nguyễn Minh Anh",
-      role: "Trưởng nam",
-    },
-    nhagai: {
-      label: "Nhà gái",
-      father: "Ông Phạm Quốc Hưng",
-      mother: "Bà Lê Thanh Hương",
-      address: "TP. Hồ Chí Minh",
-      fullName: "Phạm Khánh Linh",
-      role: "Trưởng nữ",
-    },
+  families: content.families,
+  ceremonies: content.ceremonies,
+  dressCode: content.dressCode,
+  gifts: giftAccounts.map(account => ({ ...account, qrImage: asset(account.qrImage) })),
+  opening: {
+    backgroundColor: "#f7f3ed",
+    textureOverlay: "rgb(247 243 237 / 88%)",
+    buttonColor: "#77764f",
+    buttonTextColor: "#fffdf7",
+    sealImage: asset("images/opening/seal-10.png"),
+    textureImage: asset("images/opening/dark-linen.png"),
   },
-  ceremonies: {
-    nhatrai: {
-      title: "Lễ thành hôn",
-      dateTimeISO: "2027-01-10T09:00:00+07:00",
-      venue: "Tư gia nhà trai",
-      lunarDate: "",
+  crimson: {
+    sections: {
+      showGuestbook: false,
+      showExtraDetails: false,
+      showInvitationTools: false,
     },
-    nhagai: {
-      title: "Lễ vu quy",
-      dateTimeISO: "2027-01-09T09:00:00+07:00",
-      venue: "Tư gia nhà gái",
-      lunarDate: "",
-    },
+    fontStylesheet: asset("crimson/fonts.css"),
+    // Thứ tự hiển thị: trái, giữa, phải. Xem PHOTO_GUIDE.md để thay ảnh.
+    heroImages: [
+      asset("images/anh-cuoi/dau-thiep/ben-trai.webp"),
+      asset("images/anh-cuoi/dau-thiep/o-giua.jpg"),
+      asset("images/anh-cuoi/dau-thiep/ben-phai.webp"),
+    ],
+    countdownImage: asset("images/anh-cuoi/dem-nguoc/anh-nen.webp"),
+    // Thứ tự: chú rể, cô dâu.
+    storyImages: [
+      asset("images/anh-cuoi/co-dau-chu-re/web/chu-re.jpg"),
+      asset("images/anh-cuoi/co-dau-chu-re/web/co-dau.jpg?v=13594f6389e4"),
+    ],
+    footerImage: asset("images/anh-cuoi/cuoi-thiep/loi-cam-on.jpg?v=2cf7b9d68fdd"),
+    calendarHeart: asset("crimson/heart-calendar.png"),
+    copy: content.crimsonCopy,
   },
-  dressCode: [
-    { name: "Đỏ rượu", color: "#741b27" },
-    { name: "Kem ngà", color: "#fff2d5" },
-    { name: "Vàng champagne", color: "#c9a45c" },
-  ],
-  gifts: [] as WeddingGiftAccount[],
-  heroImage: asset("images/hero.webp"),
-  detailImage: asset("images/details.webp"),
+  // Thêm, bớt hoặc đổi thứ tự tên file dưới đây để cấu hình album.
   galleryImages: [
-    {
-      src: asset("images/couple.webp"),
-      alt: "Ảnh minh họa cặp đôi trong ngày cưới",
+    "anh_1.jpg",
+    "anh_2.jpg",
+    "anh_3.jpg",
+    "anh_4.jpg",
+    "anh_5.jpg",
+    "anh_6.jpg",
+  ].map((filename, position) => ({
+    src: asset(`images/anh-cuoi/album/web/${filename}`),
+    previewSrc: asset(`images/anh-cuoi/album/responsive/${filename.replace('.jpg', '-960.jpg')}`),
+    previewSrcSet: [960, 1920].map(width => `${asset(`images/anh-cuoi/album/responsive/${filename.replace('.jpg', `-${width}.jpg`)}`)} ${width}w`).join(', '),
+    fullSrc: asset(`images/anh-cuoi/album/${filename}`),
+    alt: `Ảnh cưới của chúng mình, khoảnh khắc ${position + 1}`,
+  })),
+  music: asset("audio/background_music.mp3"),
+  albumMusic: asset("audio/sugar.mp3"),
+  photoViewer: {
+    panHint: "Kéo ảnh hoặc dùng phím mũi tên để xem vùng khác",
+    zoomIn: "Phóng to ảnh gốc",
+    zoomOut: "Thu nhỏ ảnh",
+    loadingImage: "Đang tải ảnh…",
+    title: "Album ảnh cưới",
+    close: "Đóng album",
+    previous: "Ảnh trước",
+    next: "Ảnh tiếp theo",
+    thumbnails: "Chọn ảnh trong album",
+    viewImage: "Xem ảnh",
+    loadError: "Chưa tải được ảnh. Bạn có thể chọn ảnh khác hoặc mở lại album.",
+  },
+  // Manual album navigation; transition time is in milliseconds.
+  galleryCards: {
+    visibleHint: "Chọn ảnh giữa để xem lớn",
+    transitionMs: 1100,
+    carouselLabel: "Trình chiếu ảnh 3D",
+    openImage: "Mở ảnh",
+    instructions: "Dùng nút ảnh trước, ảnh tiếp theo hoặc phím mũi tên để chuyển ảnh. Chọn ảnh giữa để xem toàn màn hình.",
+  },
+  magazine: {
+    portraitAnimation: { effect: "fadeInUp" as WeddingAnimation, duration: 1.5, delay: 0.2 },
+    coupleImage: asset("images/anh-cuoi/co-dau-chu-re/web/co-dau.jpg?v=13594f6389e4"),
+    calendarBackground: asset("images/magazine/calendar-background.png"),
+    eventsDivider: asset("images/magazine/events-divider.png"),
+    heroImage: asset("images/anh-cuoi/dau-thiep/o-giua-2.jpg?v=d0e1f36751e5"),
+    heroSrcSet: [480, 960, 1440, 2700].map(width => `${asset(`images/anh-cuoi/dau-thiep/responsive/hero-${width}.jpg`)} ${width}w`).join(', '),
+    copy: {
+      eventShortcut: "Thời gian & địa điểm",
+      receptionCalendar: "Lưu lịch bữa tiệc",
+      ceremonyCalendar: "Lưu lịch buổi lễ",
+      eventTimePrefix: "Được tổ chức vào lúc",
+      heroEyebrow: "the wedding of",
+      heroAlt: "Khoảnh khắc bên nhau của cô dâu và chú rể",
+      footerAlt: "Ảnh cưới kết thiệp",
+      storyTitle: "Hai Trái Tim, Một Hành Trình",
+      coupleLabel: "Cô dâu và chú rể",
+      sideLabel: "Chọn bên mời",
+      rsvpLabel: "R.S.V.P.",
+      reminder: "Đừng quên mình có hẹn nhé!",
     },
-    {
-      src: asset("images/hero.webp"),
-      alt: "Ảnh minh họa cặp đôi cầm hoa cưới trong ánh nắng",
-    },
-    {
-      src: asset("images/details.webp"),
-      alt: "Ảnh minh họa những chi tiết hoa trong lễ cưới",
-    },
-    {
-      src: asset("images/celebration.webp"),
-      alt: "Ảnh minh họa khoảnh khắc trong ngày chung đôi",
-    },
-  ],
-  music: asset("audio/a-little-forever.wav"),
-  events: {
-    nhatrai: {
-      title: "Tiệc cưới nhà trai",
-      dateTimeISO: "2027-01-10T17:00:00+07:00",
-      welcomeTime: "16:30",
-      schedule: [
-        {
-          time: "16:30",
-          title: "Đón khách",
-          description: "Gặp gỡ, chụp hình & lưu giữ kỷ niệm",
-        },
-        {
-          time: "17:00",
-          title: "Khai tiệc",
-          description: "Chào đón cô dâu và chú rể",
-        },
-        {
-          time: "17:15",
-          title: "Khoảnh khắc nên duyên",
-          description: "Trao nhẫn, rót rượu & cắt bánh",
-        },
-        {
-          time: "17:30",
-          title: "Chung vui",
-          description: "Dùng tiệc và nâng ly chúc mừng",
-        },
-        {
-          time: "20:00",
-          title: "Lời cảm ơn",
-          description: "Hẹn gặp lại trong những ngày vui",
-        },
-      ],
-      venueName: "The Reverie Saigon",
-      address: "22–36 Nguyễn Huệ, phường Sài Gòn, TP. Hồ Chí Minh",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=The+Reverie+Saigon+22+36+Nguyen+Hue",
-    },
-    nhagai: {
-      title: "Tiệc cưới nhà gái",
-      dateTimeISO: "2027-01-09T11:00:00+07:00",
-      welcomeTime: "10:30",
-      schedule: [
-        {
-          time: "10:30",
-          title: "Đón khách",
-          description: "Gặp gỡ, chụp hình & lưu giữ kỷ niệm",
-        },
-        {
-          time: "11:00",
-          title: "Khai tiệc",
-          description: "Chào đón cô dâu và chú rể",
-        },
-        {
-          time: "11:15",
-          title: "Khoảnh khắc nên duyên",
-          description: "Trao nhẫn, rót rượu & cắt bánh",
-        },
-        {
-          time: "11:30",
-          title: "Chung vui",
-          description: "Dùng tiệc và nâng ly chúc mừng",
-        },
-        {
-          time: "14:00",
-          title: "Lời cảm ơn",
-          description: "Hẹn gặp lại trong những ngày vui",
-        },
-      ],
-      venueName: "Park Hyatt Saigon",
-      address: "2 Công trường Lam Sơn, phường Sài Gòn, TP. Hồ Chí Minh",
-      mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Park+Hyatt+Saigon+2+Lam+Son+Square",
-    },
-  } satisfies Record<WeddingSide, WeddingEvent>,
-  story: [
-    {
-      year: "2021",
-      title: "Một lần gặp, một đời nhớ",
-      text: "Một buổi chiều bình thường, một cuộc gặp thật tình cờ. Chúng mình không biết rằng, từ hôm ấy, những điều bình thường đã trở nên đặc biệt.",
-    },
-    {
-      year: "2024",
-      title: "Cùng nhau qua những mùa",
-      text: "Từ những cuộc hẹn nhỏ đến những chuyến đi xa, điều đẹp nhất vẫn là có một người để cùng chia sẻ mọi khoảnh khắc.",
-    },
-    {
-      year: "2027",
-      title: "Và rồi, mình có nhau",
-      text: "Sau tất cả, chúng mình chọn nắm tay nhau. Bắt đầu một chương mới, ở nơi có hai người và một mái nhà.",
-    },
-  ],
+  },
+  events: content.events satisfies Record<WeddingSide, WeddingEvent>,
+  story: content.story,
 };

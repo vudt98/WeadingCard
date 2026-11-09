@@ -1,13 +1,17 @@
-import { useEffect, type RefObject } from "react";
+import { useContext, useLayoutEffect, type RefObject } from "react";
+import { InvitationViewportContext } from "../components/InvitationViewportContext";
 
 export function useModal(
   ref: RefObject<HTMLElement | null>,
   close?: () => void,
 ) {
-  useEffect(() => {
+  const viewport = useContext(InvitationViewportContext);
+  useLayoutEffect(() => {
+    const dialog = ref.current;
     const previous = document.activeElement as HTMLElement | null;
-    const oldOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
+    const scrollSurface = viewport?.scrollRef.current ?? document.body;
+    const oldOverflow = scrollSurface.style.overflow;
+    scrollSurface.style.overflow = "hidden";
     // Hide every branch outside the dialog from both pointer and keyboard users.
     const background: { element: HTMLElement; inert: boolean }[] = [];
     let branch: HTMLElement | null = ref.current;
@@ -36,7 +40,7 @@ export function useModal(
           !element.closest("[inert]") &&
           element.getClientRects().length > 0,
       );
-    focusable()[0]?.focus();
+    focusable()[0]?.focus({ preventScroll: true });
     const handle = (event: KeyboardEvent) => {
       if (event.key === "Escape" && close) close();
       if (event.key !== "Tab") return;
@@ -54,10 +58,12 @@ export function useModal(
     };
     document.addEventListener("keydown", handle);
     return () => {
-      document.body.style.overflow = oldOverflow;
+      scrollSurface.style.overflow = oldOverflow;
       document.removeEventListener("keydown", handle);
       for (const item of background) item.element.inert = item.inert;
-      if (previous?.isConnected) previous.focus();
+      // Strict Mode can capture the dialog's own button as "previous". Never
+      // focus a control that is being removed; it can also cancel auto-start.
+      if (previous?.isConnected && !dialog?.contains(previous)) previous.focus({ preventScroll: true });
     };
-  }, [ref, close]);
+  }, [ref, close, viewport]);
 }

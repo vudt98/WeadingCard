@@ -1,4 +1,4 @@
-import type { WeddingEvent, WeddingSide } from "../config/wedding";
+import { wedding, type WeddingEvent, type WeddingSide } from "../config/wedding";
 
 export const normalizeGuest = (value: string | null): string =>
   // Intentional removal of control characters from user-supplied display names.
@@ -10,7 +10,7 @@ export const normalizeGuest = (value: string | null): string =>
       .trim(),
   ]
     .slice(0, 100)
-    .join("") || "Quý khách";
+    .join("") || wedding.ui.defaultGuest;
 
 export function parseInvitation(search: string) {
   const params = new URLSearchParams(search);
@@ -68,7 +68,7 @@ export function numericDateParts(iso: string) {
   };
 }
 
-export function calendarUrl(event: WeddingEvent, couple: string) {
+export function calendarUrl(event: Pick<WeddingEvent, "title" | "dateTimeISO" | "venueName" | "address">, couple: string) {
   const start = new Date(event.dateTimeISO);
   const end = new Date(start.getTime() + 3 * 3600000);
   const stamp = (d: Date) =>
@@ -78,11 +78,11 @@ export function calendarUrl(event: WeddingEvent, couple: string) {
       .replace(/\.\d{3}/, "");
   const params = new URLSearchParams({
     action: "TEMPLATE",
-    text: `Lễ cưới ${couple}`,
+    text: `${event.title} · ${couple}`,
     dates: `${stamp(start)}/${stamp(end)}`,
     location: `${event.venueName}, ${event.address}`,
     details:
-      "Rất mong được đón tiếp bạn trong ngày vui của chúng mình. (Thông tin thiệp mẫu)",
+      wedding.ui.calendarDescription,
   });
   return `https://calendar.google.com/calendar/render?${params}`;
 }

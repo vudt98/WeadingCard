@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState } from "react";
-import { Copy, Download, Gift, X } from "lucide-react";
+import { Copy, Download, X } from "lucide-react";
 import { wedding } from "../config/wedding";
 import { useModal } from "../hooks/useModal";
 import { Reveal } from "./Reveal";
+import { InvitationPortal } from "./InvitationPortal";
 
 function GiftDialog({ close }: { close: () => void }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -77,25 +78,16 @@ function GiftDialog({ close }: { close: () => void }) {
 export function WeddingGift() {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
+  if (!wedding.gifts.length) return <section className="gift-section section-shell" id="qua-mung"><p className="gift-availability">{wedding.copy.giftEmpty}</p></section>;
   return (
     <section className="gift-section section-shell" id="qua-mung">
-      <Reveal>
-        <span className="eyebrow">HỘP QUÀ MỪNG</span>
-        <h2>{wedding.copy.giftTitle}</h2>
-        <p className="section-description">{wedding.copy.giftText}</p>
-        {wedding.gifts.length > 0 ? (
-          <button className="gift-box" onClick={() => setOpen(true)}>
-            <Gift size={52} strokeWidth={1} />
-            <span>Mở hộp quà mừng</span>
-          </button>
-        ) : (
-          <div className="gift-placeholder">
-            <Gift size={52} strokeWidth={1} />
-            <p>{wedding.copy.giftEmpty}</p>
-          </div>
-        )}
+      <Reveal effect="fadeIn" duration={1}>
+        <button className="gift-box" onClick={() => setOpen(true)} disabled={!wedding.gifts.length} aria-describedby="gift-availability" title={!wedding.gifts.length ? wedding.copy.giftEmpty : wedding.copy.giftTitle}>
+          {wedding.crimson.copy.giftButton}
+        </button>
+        <p id="gift-availability" className="sr-only">{wedding.gifts.length ? wedding.copy.giftText : wedding.copy.giftEmpty}</p>
       </Reveal>
-      {open && <GiftDialog close={close} />}
+      {open && <InvitationPortal><GiftDialog close={close} /></InvitationPortal>}
     </section>
   );
 }

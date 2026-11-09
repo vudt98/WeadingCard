@@ -1,0 +1,8 @@
+/* Font declarations adapted from the supplied saved reference; all files local. */
+@font-face {font-family:'Ergisa';src:url('fonts/ergisa.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'Alisheia';src:url('fonts/alisheia.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'Lora Regular';src:url('fonts/lora-regular.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'Luxurious Script';src:url('fonts/luxurious-script.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'UTM Edwardian';src:url('fonts/utm-edwardian.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'HoaTay1';src:url('fonts/hoatay1.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}
+@font-face {font-family:'VIP Brisca';src:url('fonts/vip-brisca.woff2') format('woff2');font-weight:normal;font-style:normal;font-display:swap;}

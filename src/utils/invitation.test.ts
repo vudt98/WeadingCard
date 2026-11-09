@@ -9,7 +9,35 @@ import {
   numericDateParts,
   parseInvitation,
 } from "./invitation";
-import { wedding } from "../config/wedding";
+import type { WeddingEvent, WeddingSide } from "../config/wedding";
+
+// Keep utility expectations independent of the editable wedding resource.
+const testEvents: Record<WeddingSide, WeddingEvent> = {
+  nhatrai: {
+    title: "Tiệc nhà trai",
+    dateTimeISO: "2027-01-10T17:00:00+07:00",
+    welcomeTime: "16:30",
+    venueName: "Groom venue",
+    address: "Groom address",
+    mapsUrl: "https://example.com/groom",
+    schedule: [
+      { time: "16:30", title: "Welcome", description: "" },
+      { time: "17:00", title: "Reception", description: "" },
+    ],
+  },
+  nhagai: {
+    title: "Tiệc nhà gái",
+    dateTimeISO: "2027-01-09T11:00:00+07:00",
+    welcomeTime: "10:30",
+    venueName: "Park Hyatt",
+    address: "Bride address",
+    mapsUrl: "https://example.com/bride",
+    schedule: [
+      { time: "10:30", title: "Welcome", description: "" },
+      { time: "11:00", title: "Reception", description: "" },
+    ],
+  },
+};
 
 describe("invitation personalization", () => {
   it("decodes Vietnamese names and selects the requested family", () => {
@@ -82,7 +110,7 @@ describe("month calendar", () => {
   });
   it("selects the correct day and schedule when the invitation side changes", () => {
     for (const side of ["nhatrai", "nhagai"] as const) {
-      const event = wedding.events[side];
+      const event = testEvents[side];
       expect(calendarMonth(event.dateTimeISO).selectedDay).toBe(
         side === "nhatrai" ? 10 : 9,
       );
@@ -123,16 +151,28 @@ describe("wedding timezone and calendar", () => {
   });
   it("renders local time and builds side-specific UTC calendar links", () => {
     expect(
-      formatDate(wedding.events.nhatrai.dateTimeISO, {
+      formatDate(testEvents.nhatrai.dateTimeISO, {
         hour: "2-digit",
         minute: "2-digit",
         hour12: false,
       }),
     ).toBe("17:00");
-    const url = new URL(calendarUrl(wedding.events.nhagai, "Anh & Linh"));
+    const url = new URL(calendarUrl(testEvents.nhagai, "Anh & Linh"));
     expect(url.searchParams.get("dates")).toBe(
       "20270109T040000Z/20270109T070000Z",
     );
     expect(url.searchParams.get("location")).toContain("Park Hyatt");
+    expect(url.searchParams.get("text")).toBe(`${testEvents.nhagai.title} · Anh & Linh`);
+  });
+  it("keeps ceremony time and venue independent from the reception", () => {
+    const url = new URL(calendarUrl({
+      title: "Lễ vu quy",
+      dateTimeISO: "2026-11-29T09:00:00+07:00",
+      venueName: "Tư gia nhà gái",
+      address: "Ba Vì, Hà Nội",
+    }, "Vũ & Mai"));
+    expect(url.searchParams.get("dates")).toBe("20261129T020000Z/20261129T050000Z");
+    expect(url.searchParams.get("text")).toBe("Lễ vu quy · Vũ & Mai");
+    expect(url.searchParams.get("location")).toBe("Tư gia nhà gái, Ba Vì, Hà Nội");
   });
 });

@@ -1,0 +1,226 @@
+{
+  "isDemo": true,
+  "groomName": "Tuấn Vũ",
+  "brideName": "Tuyết Mai",
+  "monogram": "V & M",
+  "signature": "Vũ & Mai",
+  "hashtag": "#VuMaiWedding",
+  "copy": {
+    "coverTitle": "Thiệp báo hỷ",
+    "openButton": "Mở thiệp",
+    "invitation": "Trân trọng kính mời",
+    "opening": "Một lời hẹn, một đời bên nhau",
+    "invitationText": "đến chung vui cùng gia đình chúng mình trong ngày nên duyên.",
+    "heroQuote": "Từ đây, hai tiếng chúng mình\nđã thành một tiếng trăm năm.",
+    "albumTitle": "Ngày mình có nhau",
+    "albumSubtitle": "Gói ghém một chút yêu thương",
+    "albumNote": "Ảnh minh họa cho một câu chuyện chờ được viết bằng kỷ niệm của bạn.",
+    "galleryCaption": "Một chút kỷ niệm, một đời thương",
+    "eventIntro": "Sự hiện diện của bạn là niềm hạnh phúc của chúng mình.",
+    "countdown": "Cùng đếm từng khoảnh khắc",
+    "countdownPassed": "Ngày vui đã đến, cảm ơn bạn vì đã ở đây.",
+    "rsvpTitle": "Hẹn bạn ngày chung đôi",
+    "rsvpText": "Hãy xác nhận sự có mặt của Quý Khách để gia đình\nchúng tôi chuẩn bị đón tiếp một cách chu đáo nhất.\nTrân trọng!",
+    "rsvpStatus": "Xác nhận tham dự sẽ sớm mở",
+    "rsvpNote": "Thiệp mẫu chưa nhận hoặc lưu phản hồi. Thông tin liên hệ sẽ được bổ sung khi có thiệp chính thức.",
+    "guestbookTitle": "Đôi lời thương gửi",
+    "guestbookText": "Có những lời chúc sẽ theo chúng mình suốt một đời.",
+    "guestbookStatus": "Sổ lưu bút sẽ sớm mở",
+    "guestbookNote": "Chúng mình chưa tiếp nhận lời chúc trên bản thiệp mẫu này.",
+    "giftTitle": "Gửi chút yêu thương",
+    "giftText": "Bạn đến chung vui đã là món quà quý giá nhất.",
+    "giftEmpty": "Thông tin quà mừng sẽ được cập nhật trên thiệp chính thức.",
+    "thankYou": "Cảm ơn Quý Khách đã dành tình cảm cho gia đình chúng tôi! Sự hiện diện của Quý Khách chính là món quà ý nghĩa nhất, gia đình chúng tôi vô cùng trân quý khi được cùng Quý Khách chia sẻ niềm hạnh phúc trong ngày trọng đại này.",
+    "demoNote": "Thiệp mẫu · Thông tin & hình ảnh minh họa",
+    "dressCodeText": "Một chút đồng điệu, cho ngày vui thêm trọn vẹn. Bạn có thể chọn trang phục với những sắc màu dưới đây."
+  },
+  "families": {
+    "nhatrai": {
+      "label": "Nhà trai",
+      "father": "Ông Dương Ngọc Yến",
+      "mother": "Bà Lương Thị Minh",
+      "address": "Ba Vì - Hà Nội",
+      "fullName": "Dương Tuấn Vũ",
+      "role": "Quý nam"
+    },
+    "nhagai": {
+      "label": "Nhà gái",
+      "father": "Ông Trần Văn Toản",
+      "mother": "Bà Phùng Thị Tuyết",
+      "address": "Ba Vì - Hà Nội",
+      "fullName": "Trần Thị Tuyết Mai",
+      "role": "Trưởng nữ"
+    }
+  },
+  "ceremonies": {
+    "nhatrai": {
+      "title": "Lễ thành hôn",
+      "dateTimeISO": "2026-11-29T09:00:00+07:00",
+      "venue": "Tư gia nhà trai",
+      "lunarDate": ""
+    },
+    "nhagai": {
+      "title": "Lễ vu quy",
+      "dateTimeISO": "2026-11-29T09:00:00+07:00",
+      "venue": "Tư gia nhà gái",
+      "lunarDate": ""
+    }
+  },
+  "countdown": {
+    "nhatrai": { "dateTimeISO": "2026-11-29T09:00:00+07:00" },
+    "nhagai": { "dateTimeISO": "2026-11-29T09:00:00+07:00" }
+  },
+  "calendar": {
+    "nhatrai": { "dateTimeISO": "2026-11-29T09:00:00+07:00" },
+    "nhagai": { "dateTimeISO": "2026-11-29T09:00:00+07:00" }
+  },
+  "dressCode": [
+    {
+      "name": "Đỏ rượu",
+      "color": "#741b27"
+    },
+    {
+      "name": "Kem ngà",
+      "color": "#fff2d5"
+    },
+    {
+      "name": "Vàng champagne",
+      "color": "#c9a45c"
+    }
+  ],
+  "events": {
+    "nhatrai": {
+      "title": "Tiệc cưới nhà trai",
+      "dateTimeISO": "2026-11-28T17:00:00+07:00",
+      "welcomeTime": "16:30",
+      "schedule": [
+        {
+          "time": "16:30",
+          "title": "Đón khách",
+          "description": "Gặp gỡ, chụp hình & lưu giữ kỷ niệm"
+        },
+        {
+          "time": "17:00",
+          "title": "Khai tiệc",
+          "description": "Chào đón cô dâu và chú rể"
+        },
+        {
+          "time": "17:15",
+          "title": "Khoảnh khắc nên duyên",
+          "description": "Trao nhẫn, rót rượu & cắt bánh"
+        },
+        {
+          "time": "17:30",
+          "title": "Chung vui",
+          "description": "Dùng tiệc và nâng ly chúc mừng"
+        },
+        {
+          "time": "20:00",
+          "title": "Lời cảm ơn",
+          "description": "Hẹn gặp lại trong những ngày vui"
+        }
+      ],
+      "venueName": "Tư gia nhà trai",
+      "address": "Sô 4 Bất Bạt, Ba Vì, Hà Nội",
+      "mapsUrl": "https://maps.app.goo.gl/bafjdUmNMPdLyGTm8"
+    },
+    "nhagai": {
+      "title": "Tiệc cưới nhà gái",
+      "dateTimeISO": "2026-11-28T16:00:00+07:00",
+      "welcomeTime": "16:30",
+      "schedule": [
+        {
+          "time": "10:30",
+          "title": "Đón khách",
+          "description": "Gặp gỡ, chụp hình & lưu giữ kỷ niệm"
+        },
+        {
+          "time": "11:00",
+          "title": "Khai tiệc",
+          "description": "Chào đón cô dâu và chú rể"
+        },
+        {
+          "time": "11:15",
+          "title": "Khoảnh khắc nên duyên",
+          "description": "Trao nhẫn, rót rượu & cắt bánh"
+        },
+        {
+          "time": "11:30",
+          "title": "Chung vui",
+          "description": "Dùng tiệc và nâng ly chúc mừng"
+        },
+        {
+          "time": "14:00",
+          "title": "Lời cảm ơn",
+          "description": "Hẹn gặp lại trong những ngày vui"
+        }
+      ],
+      "venueName": "Tư gia nhà gái",
+      "address": "Xóm 1 Vật Phụ, Ba Vì, Hà Nội",
+      "mapsUrl": "https://maps.app.goo.gl/TfbWxqm3o3UTazFV8"
+    }
+  },
+  "story": [
+    {
+      "year": "2021",
+      "title": "Một lần gặp, một đời nhớ",
+      "text": "Một buổi chiều bình thường, một cuộc gặp thật tình cờ. Chúng mình không biết rằng, từ hôm ấy, những điều bình thường đã trở nên đặc biệt."
+    },
+    {
+      "year": "2024",
+      "title": "Cùng nhau qua những mùa",
+      "text": "Từ những cuộc hẹn nhỏ đến những chuyến đi xa, điều đẹp nhất vẫn là có một người để cùng chia sẻ mọi khoảnh khắc."
+    },
+    {
+      "year": "2027",
+      "title": "Và rồi, mình có nhau",
+      "text": "Sau tất cả, chúng mình chọn nắm tay nhau. Bắt đầu một chương mới, ở nơi có hai người và một mái nhà."
+    }
+  ],
+  "crimsonCopy": {
+    "announcement": "We're getting married!",
+    "saveTheDate": "Save the date",
+    "familyInvitation": "Trân trọng kính mời quý khách đến chung vui cùng gia đình chúng tôi",
+    "receptionTitle": "Bữa tiệc chung vui",
+    "ceremonyTitle": "Lễ thành hôn",
+    "storyTitle": "Love Story",
+    "groomRole": "Chú rể",
+    "brideRole": "Cô dâu",
+    "albumTitle": "Album",
+    "albumScript": "of love",
+    "thanksTitle": "Thank you",
+    "giftButton": "GỬI QUÀ MỪNG CƯỚI",
+    "extraDetails": "Dress code & lịch trình"
+  },
+  "autoScrollLabels": {
+    "startLabel": "Bắt đầu tự cuộn",
+    "stopLabel": "Dừng tự cuộn",
+    "bottomLabel": "Đã đến cuối thiệp",
+    "reducedMotionLabel": "Đến cuối thiệp"
+  },
+  "musicLabels": {
+    "startLabel": "Bật nhạc nền",
+    "stopLabel": "Tắt nhạc nền",
+    "blockedMessage": "Chạm vào biểu tượng nhạc để phát.",
+    "errorMessage": "Chưa phát được nhạc nền. Bạn có thể thử lại."
+  },
+  "ui": {
+    "defaultGuest": "Quý khách",
+    "skipLink": "Đến nội dung thiệp",
+    "directions": "Xem chỉ đường",
+    "addToCalendar": "Thêm vào lịch",
+    "countdownUnits": [
+      "NGÀY",
+      "GIỜ",
+      "PHÚT",
+      "GIÂY"
+    ],
+    "dressCodeLabel": "DRESS CODE",
+    "dressCodeTitle": "Một chút đồng điệu",
+    "scheduleLabel": "NHỮNG KHOẢNH KHẮC ĐÁNG NHỚ",
+    "scheduleTitle": "Lịch trình ngày vui",
+    "guestbookLabel": "SỔ LƯU BÚT",
+    "calendarDescription": "Rất mong được đón tiếp bạn trong ngày vui của chúng mình. (Thông tin thiệp mẫu)"
+  },
+  "gifts": []
+}
