@@ -561,3 +561,11 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - [x] Select application source, tests, build configuration, GitHub Pages workflow, configured local images/fonts/audio and the responsive-image generation script. Exclude saved template HTML/directories, temporary resource manifests, local audit scripts, generated output, unused I Do audio and unused Marmelad font using `.gitignore`.
 - [x] Validate the selected Git index in `artifacts/deploy-staging/`: typecheck, lint, all 58 tests and production build pass. All 43 public images and 7 local stylesheet fonts are present; both configured audio files are present; excluded assets are absent from the build. No credential patterns found in selected text files. Public assets total 164.59 MB; largest file 21.69 MB.
 - Delivery target: commit this reviewed source package and push to `origin/main`; confirm the remote commit matches local HEAD. Git history records the resulting commit.
+
+## Embedded Google Forms RSVP — 9 November 2026
+
+- [x] Add configurable respondent URL, frame height, accessible title, introduction, privacy note and external fallback link in `src/config/wedding.ts`.
+- [x] Render a lazy Google Forms iframe only for a valid HTTPS Google responder URL; retain the unavailable state while no real form is configured. Do not simulate success or infer a submission from iframe loading.
+- [x] Add responsive frame styling and a keyboard-visible fallback link; document Forms/Sheets setup and end-to-end validation in RSVP_SETUP.md.
+- [x] Typecheck, lint, all 69 tests and production build pass. End-to-end submission and visual verification with the actual form remain pending the Google connection and real responder URL.
+- [ ] Connect the owner's Google account, create/publish the real Form and private linked Sheet, configure its responder URL and verify a labeled test response before deployment. Google Drive connection is currently pending; no cloud file has been created.

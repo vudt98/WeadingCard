@@ -102,6 +102,11 @@
 .magazine-page .rsvp-section { padding: min(3cqw, 15px) 0 0; }
 .magazine-page .rsvp-section .section-description { font-size: clamp(14px, 3.6cqw, 18px); color: var(--ink); white-space: normal; }
 .magazine-page .crimson-rsvp-status { width: 100%; margin: min(4cqw, 20px) 0 0; }
+.rsvp-google-form { width: 100%; min-width: 0; margin-top: 20px; }
+.rsvp-form-frame { display: block; width: 100%; max-width: 100%; border: 0; border-radius: 12px; background: #fff; }
+.rsvp-privacy-note, .rsvp-fallback-note { font-size: 14px; line-height: 1.7; margin: 14px 0; color: var(--ink); }
+.rsvp-form-link { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border: 1px solid currentColor; border-radius: 24px; color: var(--ink); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.rsvp-form-link:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 .magazine-page .availability-note { min-height: 0; padding: min(5cqw, 25px); border: 1px solid #d8d4c8; border-radius: 3px; background: transparent; box-shadow: none; gap: min(2cqw, 10px); }
 .magazine-page .availability-note strong { font-size: clamp(14px, 3.6cqw, 18px); color: var(--ink); }
 .magazine-page .availability-note p { font-size: clamp(14px, 3cqw, 15px); color: var(--ink); }

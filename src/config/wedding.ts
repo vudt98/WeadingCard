@@ -62,6 +62,18 @@ export const wedding = {
   monogram: content.monogram,
   signature: content.signature,
   hashtag: content.hashtag,
+  rsvp: {
+    // Paste the full responder URL (https://docs.google.com/forms/d/e/.../viewform).
+    // Leave empty until a real form is published and connected to its response Sheet.
+    formUrl: "",
+    embedHeight: 1100,
+    introText: content.copy.rsvpText,
+    frameTitle: "Xác nhận tham dự đám cưới Tuấn Vũ và Tuyết Mai",
+    fallbackText: "Nếu biểu mẫu không hiển thị hoặc khó thao tác, bạn có thể mở riêng tại đây.",
+    openLabel: "Mở form xác nhận",
+    newTabLabel: "mở trong tab mới",
+    privacyNote: "Phản hồi được gửi qua Google Forms. Gia đình sử dụng thông tin để chuẩn bị đón tiếp khách mời.",
+  },
   copy: {
     ...content.copy,
     rsvpText: "",
