@@ -103,3 +103,11 @@ Phần nội dung thiệp dùng bố cục tạp chí nền kem theo `wedding-lo
 GitHub Pages builds the committed source using `.github/workflows/deploy.yml`. Commit application code in `src/`, configured images and fonts in `public/`, `background_music.mp3`, `sugar.mp3`, package/TypeScript/Vite/ESLint configuration and the workflow. Album originals are required for zoom; responsive derivatives are required for the detail viewer.
 
 Saved reference HTML and `_files` folders, local audits, `node_modules/`, `dist/`, temporary manifests and unused assets are excluded by `.gitignore`. They are not needed by CI. The current entry point renders `MagazineInvitation`; the older `CrimsonInvitation` remains in source with its configured assets. Local font source records are described in `ASSET_CREDITS.md`; the historical local resource manifest is excluded from the deployment package.
+
+## First GitHub Pages deployment
+
+Before running the deploy workflow, open repository Settings → Pages → Build and deployment → Source and select **GitHub Actions**. This requires repository administrator or maintainer access. Then re-run the failed workflow from Actions (Re-run all jobs) or run Deploy wedding invitation to GitHub Pages manually. A 404 at Configure Pages means the Pages site is missing or inaccessible; updating application code does not enable the site.
+
+For a private repository, GitHub Pages requires an eligible paid plan. If Pages settings are unavailable, check the account plan and repository/organization policy. Keep the repository visibility unchanged unless explicitly requested.
+
+The workflow uses Ubuntu 24.04 and Node 24 action runtimes (`checkout@v5`, `setup-node@v5`, `configure-pages@v6`); application commands continue to use Node 22. Automatic Pages enablement is not configured because it requires a separate privileged token.

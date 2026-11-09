@@ -1,5 +1,13 @@
 # Wedding invitation — implementation status
 
+## GitHub Pages deployment diagnosis — 9 November 2026
+
+- [x] Diagnose user-supplied run 42570052228: Configure Pages returns GET Pages site 404 after build. Repository Pages must be enabled with GitHub Actions as the publishing source.
+- [x] Upgrade checkout/setup-node to v5 and configure-pages to v6 (official Node 24 action runtimes), retain Node 22 for application commands, and pin both runners to Ubuntu 24.04 to avoid ubuntu-latest migration.
+- [x] Document one-time Pages setup, private-repository plan eligibility and workflow retry. Do not introduce a privileged token or change repository visibility.
+- [x] Typecheck, lint, all 58 tests and production build pass. Action runtime declarations verified against official action.yml files.
+- [ ] Repository owner: select Settings → Pages → Source → GitHub Actions, then rerun and confirm the deployment. Repository settings and Actions logs cannot currently be read through an authenticated connection.
+
 ## Unused image cleanup — 9 November 2026
 
 - [x] Audit all 54 public images against expanded wedding configuration (including responsive srcsets and original lightbox images), source, CSS, HTML and asset-generation scripts.
