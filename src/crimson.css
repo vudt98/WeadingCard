@@ -232,16 +232,9 @@ body { min-width: 0; }
   0%, 100% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.05); opacity: 0.8; }
 }
-@media (prefers-reduced-motion: no-preference) {
-  .music-button.playing .music-disc { animation: crimson-disc-rotate 5s linear infinite; }
-  .crimson-pulse { animation: elegance-continuous-pulse 1s 0.5s ease-in-out infinite; }
-  .crimson-pulse:is(:hover, :focus-visible) { animation-play-state: paused; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .invitation-scroll { scroll-behavior: auto; }
-  .auto-scroll-control { transition: none; }
-  [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
-}
+[data-motion="full"] .music-button.playing .music-disc { animation: crimson-disc-rotate 5s linear infinite; }
+[data-motion="full"] .crimson-pulse { animation: elegance-continuous-pulse 1s 0.5s ease-in-out infinite; }
+[data-motion="full"] .crimson-pulse:is(:hover, :focus-visible) { animation-play-state: paused; }
 @media (max-width: 360px) {
   .crimson-overlays .lightbox { padding: 45px 8px; gap: 4px; }
   .crimson-overlays .lightbox figure img { max-width: 72vw; }

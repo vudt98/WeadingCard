@@ -20,4 +20,3 @@
     height: clamp(340px, calc(100dvh - 180px), 640px);
   }
 }
-@media (prefers-reduced-motion: reduce) { .coverflow-section *, .coverflow-section *::after { transition: none !important; } }

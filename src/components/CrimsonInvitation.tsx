@@ -91,7 +91,7 @@ export function CrimsonInvitation({ guest, side, onSideChange }: {
           </article>)}
         </section>
         <PhotoGallery />
-        <RSVPForm />
+        <RSVPForm guest={guest} side={side} />
         <WeddingGift />
         {wedding.crimson.sections.showGuestbook && <Guestbook />}
         {wedding.crimson.sections.showExtraDetails && <details className="crimson-extras"><summary>{copy.extraDetails}</summary><DressCode /><WeddingSchedule event={event} /></details>}

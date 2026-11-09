@@ -1,0 +1,15 @@
+/* One effective preference for the cover, content and portalled dialogs.
+   The root follows the OS unless the guest explicitly opts in for this view. */
+[data-motion="reduced"],
+[data-motion="reduced"] *,
+[data-motion="reduced"] *::before,
+[data-motion="reduced"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+[data-motion="reduced"] [data-reveal] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+[data-motion="reduced"] .magazine-map { transform: none !important; }

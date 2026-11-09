@@ -1,4 +1,5 @@
-import { useReducedMotion } from "motion/react";
+﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
+
 import { CalendarPlus, MapPin } from "lucide-react";
 import { wedding, type WeddingSide, type WeddingEvent } from "../config/wedding";
 import { calendarUrl, formatDate, numericDateParts } from "../utils/invitation";
@@ -35,7 +36,7 @@ function EventDetails({ title, date, venue, address, lunarDate, mapsUrl, calenda
 export function MagazineInvitation({ guest, side, onSideChange }: {
   guest: string; side: WeddingSide; onSideChange: (side: WeddingSide) => void;
 }) {
-  const reduced = useReducedMotion();
+  const { reduced } = useInvitationMotion();
   const event: WeddingEvent = wedding.events[side];
   const ceremony = wedding.ceremonies[side];
   const copy = wedding.magazine.copy;
@@ -90,7 +91,7 @@ export function MagazineInvitation({ guest, side, onSideChange }: {
         </div>
       </section>
       <PhotoGallery />
-      <div className="magazine-rsvp"><Reveal><p className="magazine-rsvp-label">{copy.rsvpLabel}</p></Reveal><RSVPForm /></div>
+      <div className="magazine-rsvp"><Reveal><p className="magazine-rsvp-label">{copy.rsvpLabel}</p></Reveal><RSVPForm guest={guest} side={side} /></div>
       <WeddingGift />
       <section className="magazine-countdown" aria-label={wedding.copy.countdown}>
         <Countdown date={wedding.countdown[side].dateTimeISO} />

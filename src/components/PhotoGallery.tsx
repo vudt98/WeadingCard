@@ -1,6 +1,7 @@
+﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
 import { useCallback, useContext, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+
 import { WeddingLightbox } from "./WeddingLightbox";
 import { wedding } from "../config/wedding";
 import { Reveal } from "./Reveal";
@@ -23,7 +24,7 @@ export function PhotoGallery() {
   const viewport = useContext(InvitationViewportContext);
   const music = useContext(AlbumMusicContext);
   const focusActive = useRef(false);
-  const reduced = useReducedMotion();
+  const { reduced } = useInvitationMotion();
   const detailOpen = useRef(false);
   const choose = (index: number) => setActive(wrapPhoto(index, count));
   const move = (direction: number) => setActive(index => wrapPhoto(index + direction, count));

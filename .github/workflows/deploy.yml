@@ -24,6 +24,8 @@ jobs:
       - run: npm run lint
       - run: npm test
       - run: npm run build
+        env:
+          VITE_RSVP_SCRIPT_URL: ${{ vars.RSVP_SCRIPT_URL }}
       # One-time setup: Settings > Pages > Source > GitHub Actions.
       - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3

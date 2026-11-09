@@ -1,0 +1,99 @@
+﻿/* Ivory/olive forms and gifts share a compact type and spacing scale. */
+.crimson-page .rsvp-section { padding: 12px 0 0; }
+.rsvp-paper {
+  max-width: 480px; margin: 0 auto; padding: 22px;
+  border: 1px solid #dcd7c9; border-radius: 10px; background: #fffcf7;
+  box-shadow: 0 6px 24px #524a3f08; text-align: left; color: #524a3f;
+  font-family: "Be Vietnam Pro", sans-serif; color-scheme: light;
+}
+.rsvp-header { margin-bottom: 18px; text-align: center; }
+.rsvp-heart { display: block; margin: 0 auto 8px; color: #77764f; }
+.crimson-page .rsvp-paper h2 { margin: 0 0 6px; font: 500 clamp(28px, 6cqw, 32px)/1.2 var(--font-heading); }
+.crimson-page .rsvp-paper .rsvp-introduction { margin: 0 auto; max-width: 34ch; font-size: 13px; line-height: 1.6; color: #716958; }
+.crimson-page .rsvp-paper .rsvp-side { display: inline-block; margin: 10px 0 0; padding: 4px 10px; border-radius: 999px; background: #eeeddf; color: #5c5b3c; font-size: 12px; line-height: 1.5; }
+.rsvp-controls { display: grid; gap: 16px; min-width: 0; padding: 0; margin: 0; border: 0; }
+.rsvp-field { display: grid; gap: 6px; min-width: 0; }
+.rsvp-honeypot { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+.rsvp-field label, .rsvp-attendance legend { font-size: 14px; font-weight: 500; line-height: 1.5; }
+.rsvp-field label span { font-size: 12px; font-weight: 400; color: #716958; }
+.rsvp-field input, .rsvp-field select, .rsvp-field textarea {
+  width: 100%; min-width: 0; min-height: 44px; border: 1px solid #d5d0c2; border-radius: 6px;
+  padding: 9px 11px; background: #fffefa; color: #524a3f; font-size: 16px; line-height: 1.5;
+}
+.rsvp-field textarea { min-height: 80px; resize: vertical; }
+.rsvp-field input::placeholder, .rsvp-field textarea::placeholder { color: #81796c; opacity: 1; }
+.rsvp-field small { color: #716958; font-size: 12px; line-height: 1.5; }
+.rsvp-attendance { padding: 0; border: 0; margin: 0; min-width: 0; }
+.rsvp-attendance legend { margin-bottom: 8px; }
+.rsvp-attendance-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.rsvp-attendance label { display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 9px 8px; border: 1px solid #d5d0c2; border-radius: 6px; background: #fffefa; font-size: 13px; line-height: 1.5; cursor: pointer; }
+.rsvp-attendance label.is-selected { background: #eeeddf; border-color: #888563; color: #4f5032; }
+.rsvp-attendance label:has(input:focus-visible) { outline: 2px solid #686746; outline-offset: 2px; }
+.rsvp-attendance input { flex: 0 0 16px; width: 16px; height: 16px; accent-color: #686746; }
+.rsvp-attendance input:focus-visible { outline: none; }
+.rsvp-submit { display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%; min-height: 46px; margin-top: 18px; padding: 11px; border: 1px solid #686746; border-radius: 6px; background: #686746; color: #fffdf7; font-size: 14px; line-height: 1.5; }
+.rsvp-submit:disabled { opacity: 1; background: #e8e5d9; border-color: #d5d0c2; color: #686252; cursor: not-allowed; }
+.crimson-page .rsvp-paper .rsvp-availability { margin: 10px auto 0; max-width: 46ch; color: #716958; font-size: 12px; line-height: 1.6; text-align: center; }
+.crimson-page .rsvp-feedback { margin: 12px 0 0; padding: 10px 12px; border: 1px solid #b9b79b; background: #eeefdf; border-radius: 6px; color: #45452e; font: 14px/1.6 "Be Vietnam Pro", sans-serif; }
+.crimson-page .rsvp-feedback-error, .crimson-page .rsvp-feedback-invalid { background: #fff3ee; border-color: #d5b6a5; color: #803e2c; }
+.rsvp-feedback:empty { display: none; }
+.crimson-page .gift-section { padding: 28px min(6cqw, 30px) 12px; background: transparent; }
+.gift-love-card { max-width: 480px; position: relative; margin: auto; padding: 28px 22px; text-align: center; background: #eae8dc; border: 1px solid #d6d4c2; border-radius: 10px; color: #524a3f; }
+.gift-love-icon { display: flex; justify-content: center; align-items: center; width: 64px; height: 64px; margin: 0 auto 16px; border: 1px solid #b9b79b; border-radius: 50%; color: #686746; }
+.crimson-page .gift-love-card h2 { margin: 0 0 10px; font: 500 clamp(28px, 6cqw, 32px)/1.2 var(--font-heading); }
+.crimson-page .gift-love-card p { max-width: 34ch; margin: 0 auto 18px; font: 14px/1.7 var(--font-body); }
+.gift-open { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 11px 18px; min-height: 46px; border: 1px solid #686746; border-radius: 999px; background: #686746; color: #fffdf7; font: 14px/1.5 var(--font-body); }
+.gift-open:hover { background: #535235; }
+.gift-overlay { padding: 20px; background: #25261dd1; backdrop-filter: blur(6px); }
+.crimson-overlays .gift-dialog, .gift-dialog {
+  display: flex; flex-direction: column; max-width: 600px; max-height: min(90dvh, 760px); padding: 0;
+  border: 1px solid #dedacc; border-radius: 14px; background: #fffcf7; color: #524a3f; box-shadow: 0 24px 80px #0003;
+  font-family: "Be Vietnam Pro", sans-serif; color-scheme: light; overflow: hidden;
+}
+.gift-dialog :focus-visible { outline: 2px solid #686746; outline-offset: 2px; }
+.gift-dialog-header { flex: none; position: relative; padding: 24px 20px 16px; }
+.gift-dialog .dialog-close { color: #686252; background: transparent; border: 0; border-radius: 50%; width: 44px; height: 44px; top: 6px; right: 6px; }
+.gift-dialog h2 { margin: 0 28px 8px; color: #524a3f; font: 500 clamp(28px, 5vw, 32px)/1.2 var(--font-heading); }
+.gift-dialog #gift-description { max-width: 42ch; margin: auto; color: #716958; font-size: 13px; line-height: 1.6; }
+.gift-dialog-body { min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 0 20px 20px; scrollbar-width: thin; scrollbar-color: #b9b79b transparent; }
+.gift-dialog .gift-accounts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin: 0; }
+.gift-dialog .gift-accounts:has(> :only-child) { grid-template-columns: minmax(0, 280px); justify-content: center; }
+.gift-panel { display: flex; min-width: 0; }
+.gift-panel[hidden] { display: none; }
+.gift-dialog .gift-account { display: flex; flex: 1; flex-direction: column; align-items: stretch; max-width: none; min-width: 0; padding: 16px; border: 1px solid #dedacc; border-radius: 10px; background: #f2f0e6; }
+.gift-recipient { display: block; align-self: center; padding: 4px 12px; border-radius: 999px; background: #e5e3d3; color: #5c5b3c; font-size: 12px; line-height: 1.5; }
+.gift-qr-frame { display: grid; place-items: center; align-self: center; width: min(100%, 220px); aspect-ratio: 1; margin: 14px 0; padding: 10px; background: #fffefa; border: 1px solid #dedacc; border-radius: 8px; }
+.gift-qr-frame.is-pending { min-height: 116px; aspect-ratio: auto; border-style: dashed; }
+.gift-dialog .gift-qr-frame img { width: 100%; height: 100%; object-fit: contain; margin: 0; }
+.gift-qr-pending { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: #817d65; }
+.gift-dialog .gift-qr-pending p { max-width: 24ch; margin: 0; font-size: 12px; line-height: 1.5; }
+.gift-account-details { display: grid; gap: 4px; text-align: center; overflow-wrap: anywhere; }
+.gift-dialog .gift-account h3 { margin: 0 0 2px; font: 500 24px/1.2 var(--font-heading); }
+.gift-dialog .gift-bank, .gift-dialog .gift-number { margin: 0; font-size: 13px; line-height: 1.6; }
+.gift-number { user-select: all; font-variant-numeric: tabular-nums; }
+.gift-dialog .gift-account-pending { margin: 0; font-size: 12px; line-height: 1.6; color: #716958; }
+.gift-dialog .gift-actions { flex-direction: column; align-items: stretch; gap: 4px; margin-top: auto; padding-top: 16px; }
+.gift-copy { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px; font-size: 13px; line-height: 1.5; border: 1px solid #686746; border-radius: 6px; background: #686746; color: #fffdf7; }
+.gift-copy:disabled { opacity: 1; color: #77715f; background: #e8e5d9; border-color: #d6d1c2; cursor: not-allowed; }
+.gift-copy:not(:disabled):hover { background: #535235; }
+.gift-download { display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 8px; color: #5c5b3c; font-size: 12px; line-height: 1.5; text-decoration: underline; text-underline-offset: 3px; }
+.gift-download:hover { color: #383923; }
+.gift-dialog .gift-copy-status { margin: 12px 0 0; color: #5c5b3c; font-size: 12px; line-height: 1.6; text-align: center; }
+.gift-copy-status:empty { display: none; }
+.gift-tabs { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 4px; padding: 4px; margin-bottom: 14px; border: 1px solid #dedacc; border-radius: 8px; background: #eeeddf; }
+.gift-tabs button { min-width: 0; min-height: 44px; padding: 9px 10px; border: 0; border-radius: 5px; background: transparent; color: #716958; font-size: 14px; line-height: 1.5; }
+.gift-tabs button[aria-selected="true"] { background: #fffcf7; color: #45452e; box-shadow: 0 1px 4px #524a3f14; }
+@media (max-width: 639px) {
+  .gift-overlay { padding: 12px; }
+  .gift-dialog, .crimson-overlays .gift-dialog { max-width: 420px; }
+  .gift-dialog-header { padding: 22px 18px 14px; }
+  .gift-dialog-body { padding: 0 16px 16px; }
+  .gift-dialog .gift-accounts { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .gift-dialog .gift-accounts:has(> :only-child) { grid-template-columns: minmax(0, 1fr); }
+  .gift-recipient { display: none; }
+  .gift-qr-frame { margin: 0 0 14px; }
+}
+@media (max-width: 359px) {
+  .rsvp-paper { padding: 20px 16px; }
+  .rsvp-attendance-options { grid-template-columns: minmax(0, 1fr); }
+}

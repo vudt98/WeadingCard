@@ -1,5 +1,5 @@
-import { useCallback, useMemo, useRef, useState } from "react";
-import { AnimatePresence, MotionConfig } from "motion/react";
+﻿import { useCallback, useMemo, useRef, useState } from "react";
+import { AnimatePresence } from "motion/react";
 import { wedding, type WeddingSide } from "./config/wedding";
 import { parseInvitation } from "./utils/invitation";
 import { EnvelopeIntro } from "./components/EnvelopeIntro";
@@ -10,8 +10,15 @@ import { AutoScrollControl } from "./components/AutoScrollControl";
 import { InvitationViewportContext } from "./components/InvitationViewportContext";
 import { useInvitationReady } from "./hooks/useInvitationReady";
 import { AlbumMusicContext } from "./components/AlbumMusicContext";
+import { InvitationMotionProvider } from "./components/InvitationMotionProvider";
+import { useInvitationMotion } from "./hooks/useInvitationMotion";
 
 export default function App() {
+  return <InvitationMotionProvider><Invitation /></InvitationMotionProvider>;
+}
+
+function Invitation() {
+  const { reduced } = useInvitationMotion();
   const [invitation] = useState(() => parseInvitation(window.location.search));
   const [side, setSide] = useState<WeddingSide>(invitation.side);
   const [opened, setOpened] = useState(false);
@@ -40,30 +47,28 @@ export default function App() {
   return (
     <>
       <link rel="stylesheet" href={wedding.crimson.fontStylesheet} precedence="crimson-fonts" />
-      <MotionConfig reducedMotion="user">
-        <InvitationViewportContext.Provider value={viewport}>
-          <div className="crimson-card" ref={cardRef}>
-            <div inert={!opened} className="crimson-content">
-              <div className="invitation-scroll" ref={scrollRef} data-invitation-scroll tabIndex={0}>
-                <div className="crimson-page magazine-page">
-                  <a className="skip-link" href="#main-content">{wedding.ui.skipLink}</a>
-                  <RevealContext.Provider value={invitationReady}>
-                    <AlbumMusicContext.Provider value={albumMusic}>
-                      <MagazineInvitation guest={invitation.guest} side={side} onSideChange={changeSide} />
-                    </AlbumMusicContext.Provider>
-                  </RevealContext.Provider>
-                </div>
+      <InvitationViewportContext.Provider value={viewport}>
+        <div className="crimson-card" ref={cardRef} data-motion={reduced ? "reduced" : "full"}>
+          <div inert={!opened} className="crimson-content">
+            <div className="invitation-scroll" ref={scrollRef} data-invitation-scroll tabIndex={0}>
+              <div className="crimson-page magazine-page">
+                <a className="skip-link" href="#main-content">{wedding.ui.skipLink}</a>
+                <RevealContext.Provider value={invitationReady}>
+                  <AlbumMusicContext.Provider value={albumMusic}>
+                    <MagazineInvitation guest={invitation.guest} side={side} onSideChange={changeSide} />
+                  </AlbumMusicContext.Provider>
+                </RevealContext.Provider>
               </div>
-              <MusicPlayer ref={musicRef} opened={opened} />
-              {opened && <AutoScrollControl />}
-              <div className="crimson-overlays" ref={overlayRef} />
             </div>
-            <AnimatePresence onExitComplete={() => document.getElementById("main-content")?.focus({ preventScroll: true })}>
-              {!opened && <EnvelopeIntro guest={invitation.guest} date={event.dateTimeISO} onOpeningStart={startOpening} onOpen={finishOpening} />}
-            </AnimatePresence>
+            <MusicPlayer ref={musicRef} opened={opened} />
+            {opened && <AutoScrollControl />}
+            <div className="crimson-overlays" ref={overlayRef} />
           </div>
-        </InvitationViewportContext.Provider>
-      </MotionConfig>
+          <AnimatePresence onExitComplete={() => document.getElementById("main-content")?.focus({ preventScroll: true })}>
+            {!opened && <EnvelopeIntro guest={invitation.guest} date={event.dateTimeISO} onOpeningStart={startOpening} onOpen={finishOpening} />}
+          </AnimatePresence>
+        </div>
+      </InvitationViewportContext.Provider>
     </>
   );
 }

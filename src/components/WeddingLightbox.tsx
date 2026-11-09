@@ -1,6 +1,7 @@
+﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
 import { useCallback, useEffect, useRef, useState, type PointerEvent, type TouchEvent } from "react";
 import { ChevronLeft, ChevronRight, X, ZoomIn, ZoomOut } from "lucide-react";
-import { useReducedMotion } from "motion/react";
+
 import { wedding } from "../config/wedding";
 import { useModal } from "../hooks/useModal";
 import { clampZoom, identityZoom, swipeDirection, wrapPhoto, type PhotoZoom } from "../utils/photoViewer";
@@ -26,7 +27,7 @@ export function WeddingLightbox({ initial, close, onNavigate }: { initial: numbe
   const pointerDrag = useRef<{ id: number; x: number; y: number; zoom: PhotoZoom; moved: boolean } | null>(null);
   const suppressClickUntil = useRef(0);
   const lastTap = useRef(0);
-  const reduced = useReducedMotion();
+  const { reduced } = useInvitationMotion();
   useModal(dialog, close);
 
   const reset = useCallback(() => {
