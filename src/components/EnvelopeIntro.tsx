@@ -1,9 +1,10 @@
 import { useContext, useEffect, useRef, useState, type CSSProperties } from "react";
-import { motion, useReducedMotion } from "motion/react";
+import { motion } from "motion/react";
 import { wedding } from "../config/wedding";
 import { useModal } from "../hooks/useModal";
 import { formatDate } from "../utils/invitation";
 import { InvitationViewportContext } from "./InvitationViewportContext";
+import { useInvitationMotion } from "../hooks/useInvitationMotion";
 
 const OPENING_DURATION_MS = 2500;
 
@@ -19,10 +20,11 @@ export function EnvelopeIntro({
   onOpeningStart: () => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const openButtonRef = useRef<HTMLButtonElement>(null);
   const [opening, setOpening] = useState(false);
-  const reduced = useReducedMotion();
+  const { reduced, systemReduced, enabled, setEnabled } = useInvitationMotion();
   const viewport = useContext(InvitationViewportContext);
-  useModal(ref);
+  useModal(ref, undefined, openButtonRef);
 
   // Complete even if the browser suppresses transitionend (for example in a hidden tab).
   useEffect(() => {
@@ -93,13 +95,20 @@ export function EnvelopeIntro({
           )}
         </div>
       ))}
-      <button
-        className="envelope-open"
-        aria-disabled={opening}
-        onClick={open}
-      >
-        {wedding.copy.openButton}
-      </button>
+      <div className="envelope-actions">
+        {systemReduced && <label className="envelope-motion-option">
+          <input type="checkbox" checked={enabled} disabled={opening} onChange={event => setEnabled(event.target.checked)} />
+          <span><strong>{wedding.opening.enableMotionLabel}</strong><small>{wedding.opening.enableMotionDescription}</small></span>
+        </label>}
+        <button
+          ref={openButtonRef}
+          className="envelope-open"
+          aria-disabled={opening}
+          onClick={open}
+        >
+          {wedding.copy.openButton}
+        </button>
+      </div>
     </motion.div>
   );
 }

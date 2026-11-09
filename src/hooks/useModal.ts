@@ -4,6 +4,7 @@ import { InvitationViewportContext } from "../components/InvitationViewportConte
 export function useModal(
   ref: RefObject<HTMLElement | null>,
   close?: () => void,
+  initialFocus?: RefObject<HTMLElement | null>,
 ) {
   const viewport = useContext(InvitationViewportContext);
   useLayoutEffect(() => {
@@ -40,7 +41,9 @@ export function useModal(
           !element.closest("[inert]") &&
           element.getClientRects().length > 0,
       );
-    focusable()[0]?.focus({ preventScroll: true });
+    const items = focusable();
+    const preferred = initialFocus?.current;
+    (preferred && items.includes(preferred) ? preferred : items[0])?.focus({ preventScroll: true });
     const handle = (event: KeyboardEvent) => {
       if (event.key === "Escape" && close) close();
       if (event.key !== "Tab") return;
@@ -65,5 +68,5 @@ export function useModal(
       // focus a control that is being removed; it can also cancel auto-start.
       if (previous?.isConnected && !dialog?.contains(previous)) previous.focus({ preventScroll: true });
     };
-  }, [ref, close, viewport]);
+  }, [ref, close, initialFocus, viewport]);
 }

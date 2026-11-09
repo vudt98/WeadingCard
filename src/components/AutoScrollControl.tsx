@@ -1,5 +1,6 @@
-import { useCallback, useContext, useEffect, useRef, useState } from "react";
-import { useReducedMotion } from "motion/react";
+﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
+import { useCallback, useContext, useEffect, useState } from "react";
+
 import { ArrowDownToLine, Pause, Play } from "lucide-react";
 import { wedding } from "../config/wedding";
 import { advanceScroll } from "../utils/autoScroll";
@@ -9,15 +10,12 @@ const bottom = (surface: HTMLElement) => Math.max(0, surface.scrollHeight - surf
 
 export function AutoScrollControl() {
   const viewport = useContext(InvitationViewportContext);
-  const reduced = useReducedMotion();
+  const { reduced } = useInvitationMotion();
   const [running, setRunning] = useState(false);
   const [atBottom, setAtBottom] = useState(false);
   const [scrolling, setScrolling] = useState(false);
-  const pendingStart = useRef<number | undefined>(undefined);
   const config = wedding.autoScroll;
   const stop = useCallback(() => {
-    window.clearTimeout(pendingStart.current);
-    pendingStart.current = undefined;
     setRunning(false);
   }, []);
 
@@ -40,21 +38,6 @@ export function AutoScrollControl() {
       window.clearTimeout(idleTimeout);
     };
   }, [config.controlIdleDelayMs, viewport]);
-
-  useEffect(() => {
-    const surface = viewport?.scrollRef.current;
-    if (!surface) return;
-    // This control mounts after the doors finish. Each new opening gets its
-    // own delay; a previous visit in the same tab must not suppress playback.
-    if (!config.enabled || !config.autoStartAfterOpen || reduced !== false) return;
-    pendingStart.current = window.setTimeout(() => {
-      pendingStart.current = undefined;
-      if (!document.hidden && !document.querySelector('[role="dialog"]') && surface.scrollTop < bottom(surface) - 1) {
-        setRunning(true);
-      }
-    }, config.startDelayMs);
-    return () => window.clearTimeout(pendingStart.current);
-  }, [config, reduced, viewport]);
 
   useEffect(() => {
     const surface = viewport?.scrollRef.current;

@@ -75,18 +75,6 @@
     "nhagai": { "dateTimeISO": "2026-11-29T09:00:00+07:00" }
   },
   "dressCode": [
-    {
-      "name": "Đỏ rượu",
-      "color": "#741b27"
-    },
-    {
-      "name": "Kem ngà",
-      "color": "#fff2d5"
-    },
-    {
-      "name": "Vàng champagne",
-      "color": "#c9a45c"
-    }
   ],
   "events": {
     "nhatrai": {
@@ -94,66 +82,16 @@
       "dateTimeISO": "2026-11-28T17:00:00+07:00",
       "welcomeTime": "16:30",
       "schedule": [
-        {
-          "time": "16:30",
-          "title": "Đón khách",
-          "description": "Gặp gỡ, chụp hình & lưu giữ kỷ niệm"
-        },
-        {
-          "time": "17:00",
-          "title": "Khai tiệc",
-          "description": "Chào đón cô dâu và chú rể"
-        },
-        {
-          "time": "17:15",
-          "title": "Khoảnh khắc nên duyên",
-          "description": "Trao nhẫn, rót rượu & cắt bánh"
-        },
-        {
-          "time": "17:30",
-          "title": "Chung vui",
-          "description": "Dùng tiệc và nâng ly chúc mừng"
-        },
-        {
-          "time": "20:00",
-          "title": "Lời cảm ơn",
-          "description": "Hẹn gặp lại trong những ngày vui"
-        }
       ],
       "venueName": "Tư gia nhà trai",
-      "address": "Sô 4 Bất Bạt, Ba Vì, Hà Nội",
-      "mapsUrl": "https://maps.app.goo.gl/bafjdUmNMPdLyGTm8"
+      "address": "Sô 4, Ngách 1, Ngõ 14 Bất Bạt, Ba Vì, Hà Nội",
+      "mapsUrl": "https://maps.app.goo.gl/M7heyuiCAYWXnAXGA"
     },
     "nhagai": {
       "title": "Tiệc cưới nhà gái",
       "dateTimeISO": "2026-11-28T16:00:00+07:00",
       "welcomeTime": "16:30",
       "schedule": [
-        {
-          "time": "10:30",
-          "title": "Đón khách",
-          "description": "Gặp gỡ, chụp hình & lưu giữ kỷ niệm"
-        },
-        {
-          "time": "11:00",
-          "title": "Khai tiệc",
-          "description": "Chào đón cô dâu và chú rể"
-        },
-        {
-          "time": "11:15",
-          "title": "Khoảnh khắc nên duyên",
-          "description": "Trao nhẫn, rót rượu & cắt bánh"
-        },
-        {
-          "time": "11:30",
-          "title": "Chung vui",
-          "description": "Dùng tiệc và nâng ly chúc mừng"
-        },
-        {
-          "time": "14:00",
-          "title": "Lời cảm ơn",
-          "description": "Hẹn gặp lại trong những ngày vui"
-        }
       ],
       "venueName": "Tư gia nhà gái",
       "address": "Xóm 1 Vật Phụ, Ba Vì, Hà Nội",

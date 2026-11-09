@@ -156,7 +156,3 @@
   .magazine-hero-photo { position: relative; aspect-ratio: 100 / 138; overflow: hidden; z-index: -2; }
   .magazine-hero-image { position: absolute; bottom: 0; left: 0; width: 100%; height: auto; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .magazine-map { transition: none; transform: none !important; }
-  .magazine-page *, .magazine-page *::before, .magazine-page *::after { animation: none !important; scroll-behavior: auto !important; }
-}

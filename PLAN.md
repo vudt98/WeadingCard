@@ -1,5 +1,46 @@
 # Wedding invitation — implementation status
 
+## Compact RSVP and responsive gift dialog — 9 November 2026
+
+- [x] Compact the RSVP header, fields and spacing; style native attendance radios as short choice cards, retain 16px input text/44px targets and conditional guest count, and reduce the resizable note to two rows. Keep submission handling unchanged.
+- [x] Use keyboard-accessible recipient tabs with one panel on mobile, equal cards on tablet/desktop, a fixed dialog header/close button with a scrolling body, compact empty QR states, primary copy and secondary download actions. Keep placeholders honest and preserve focus trapping/restoration.
+- [x] Explicitly type the dress-code configuration so a user-edited empty list remains valid TypeScript without restoring or changing the JSON content.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview at port 4173 is updated. Chrome checks at 320/390/430/639/640/768/1440px verify no horizontal overflow, 16px/44px inputs, conditional attendance count, mobile tab selection/Arrow keys/Home/End/Tab trap, equal desktop cards, responsive resizing, focus restoration and a stationary visible close button while the body scrolls. Reviewed phone RSVP and phone/desktop gift screenshots. Browser-memory fixtures verify 198px QR images, correct active recipient copy/download, clipboard success/denial, QR failure, same-ID RSVP retry after receiver error, saved state and declined count zero. No fixture data entered source and no live Google submissions were made. QA: ignored `artifacts/check-compact-rsvp-gifts.mjs` and `artifacts/check-compact-configured.mjs`.
+
+## Opening button initial focus — 9 November 2026
+
+- [x] Give the cover an explicit initial focus target: “Mở thiệp”, including when the reduced-motion checkbox is visible. Keep checkbox keyboard navigation and the modal focus trap; other dialogs retain their existing default focus.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview at port 4173 is updated. Chrome checks with reduced motion enabled/disabled confirm the opening button gets initial focus, the visible checkbox is initially unfocused with no focus ring, Tab/Shift+Tab and Space still operate it within the cover, opening restores main-content focus, and gift-dialog initial/return focus remains correct. No JavaScript errors. QA: ignored `artifacts/check-open-button-focus.mjs`.
+
+## Invitation-wide motion preference — 9 November 2026
+
+- [x] Keep “Mở thiệp” button copy unchanged. Show an unchecked “Bật hiệu ứng cho thiệp” option only when the OS/browser requests reduced motion.
+- [x] Share a session-only effective motion preference between Motion, CSS, cover, entrance reveals, gallery, lightbox, event shortcut and music disc. Scope reduced-motion styles to the card including portalled dialogs; listen for live OS preference changes and reset the opt-in on reload.
+- [x] Keep automatic scrolling controlled by its Play button; opting into animation does not start scrolling. Remove the unused automatic-start timer/configuration.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview at port 4173 serves the updated build. Chrome verifies unchanged button text, checkbox visibility only with system reduction, keyboard opt-in/out, true system media query remaining reduced during opt-in, animated opening/content reveals/gallery/portalled lightbox/playing music disc, manual Play/Pause scrolling with no automatic start, reload reset, live OS media changes and layouts at 320/390/430/768/1440px without overflow. No JavaScript errors. QA: ignored `artifacts/check-invitation-motion.mjs`.
+
+## Optional animated opening with reduced motion — 9 November 2026
+
+- [x] When reduced motion is detected, show an unchecked “Bật hiệu ứng mở thiệp” checkbox on the cover. Explicit opt-in enables the 2.5-second two-door opening and changes the button to “Mở với hiệu ứng”; unchecked keeps immediate opening.
+- [x] Scope CSS transition overrides to the cover only, retain reduced motion throughout the invitation, support keyboard operation and reset the choice on reload. Keep all new labels in `wedding.opening`.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview at port 4173 serves the updated build. Chrome reduced-motion checks verify immediate opening by default, keyboard opt-in, actual progressing door transforms over the 2.5-second transition, opt-out, focus restoration, unchanged OS media query, reduced music motion and reload reset. Normal-motion opening remains animated; layouts at 320/390/430/768/1440px do not overflow. Reviewed 320px screenshot. QA: ignored `artifacts/check-opening-motion-option.mjs`.
+
+## Google Sheets RSVP integration — 9 November 2026
+
+- [x] User authorizes a Google Sheets receiver. Add a bound Apps Script with one-time setup, private response sheet, validation, formula-safe text, write lock and idempotent retry IDs. Return success only after persistence is checked.
+- [x] Connect the existing styled form using an acknowledged cross-origin iframe POST; validate Google message origin, per-attempt nonce and submission ID. Add sending/success/error states, preserve inputs and retry ID on failure, block concurrent sends, and keep submission disabled without a valid endpoint.
+- [x] Add `.env.example`, a GitHub Actions repository-variable mapping and Vietnamese setup/deployment guide in `GOOGLE_SHEETS_RSVP.md`. No Google credentials are stored in the repo.
+- [x] Typecheck, lint, all 74 tests and production build pass. Tests execute actual `Code.gs` with mocked Google services, covering saved rows, duplicate/conflicting retries, failed flush, sheet expansion, declines, invalid origins/input, formula-safe text and header/configuration errors. Chrome checks with intercepted Google-origin nested frames execute the actual HTML acknowledgement helper: failure preserves inputs, retry reuses the submission ID with a fresh nonce, successful acknowledgement locks the form, invalid messages are ignored, no acknowledgement times out without success, and transport frames are cleaned up. Narrow 320px layout has no horizontal overflow. QA: ignored `artifacts/check-rsvp-sheets.mjs`; Google persistence itself is not live-tested.
+- [ ] Live activation requires Google account setup: create private Sheet, deploy Apps Script and configure `/exec` URL. Google Drive is not connected and no Google Sheets document session is available; no live sheet or deployment has been created by the agent.
+
+## RSVP form and gift dialog UI — 9 November 2026
+
+- [x] Replace unavailable RSVP block with an editable ivory/olive form: guest name from the invitation URL, attendance radios, conditional party size, optional message and current invitation side. Keep submission disabled with an explicit unavailable notice; this phase adds UI only, with no backend or saved responses.
+- [x] Add an always-available gift section and accessible dialog with bride/groom cards. Show honest QR/account placeholders until actual details are configured; support local QR images, copy account number and download when configured. Retain focus trapping, Escape/backdrop close, scroll lock and focus restoration.
+- [x] Keep new content in `src/config/wedding.ts`; preserve local assets and reduced motion.
+- [x] Typecheck, lint, all 58 tests and production build pass. Chrome checks at 320/390/430/768/1440px confirm no horizontal overflow, personalized editable name, attendance/count changes, invitation-side updates, disabled submission with no requests, two honest placeholder gift cards, modal background/scroll lock, Tab containment, Escape/backdrop closing and restored focus. Reviewed mobile form, gift section and mobile/desktop dialog screenshots in ignored `artifacts/`; QA script: `artifacts/check-rsvp-gifts.mjs`.
+- [x] Normal-motion Chrome checks with browser-memory fixtures verify local QR rendering/download, real clipboard copying, denied clipboard feedback, broken QR fallback and reset to unconfigured cards after reload. No fixture account/QR data was added to project configuration. Script: `artifacts/check-gift-configured.mjs`.
+
 ## GitHub Pages deployment diagnosis — 9 November 2026
 
 - [x] Diagnose user-supplied run 42570052228: Configure Pages returns GET Pages site 404 after build. Repository Pages must be enabled with GitHub Actions as the publishing source.
@@ -569,3 +610,9 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - [x] Add responsive frame styling and a keyboard-visible fallback link; document Forms/Sheets setup and end-to-end validation in RSVP_SETUP.md.
 - [x] Typecheck, lint, all 69 tests and production build pass. End-to-end submission and visual verification with the actual form remain pending the Google connection and real responder URL.
 - [ ] Connect the owner's Google account, create/publish the real Form and private linked Sheet, configure its responder URL and verify a labeled test response before deployment. Google Drive connection is currently pending; no cloud file has been created.
+
+## Merge remote updates ? 9 November 2026
+
+- Preserve the remote direct RSVP form and its guest/side inputs; use the optional Google Forms embed when a valid responder URL is configured. Both integrations remain unconfigured by default.
+- Combine RSVP configuration without duplicate keys; keep each integration privacy copy.
+- Validation after merge: typecheck, lint, all 85 tests and production build pass.

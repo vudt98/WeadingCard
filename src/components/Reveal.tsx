@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from "motion/react";
+﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
+import { motion } from "motion/react";
 import { useContext, useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { wedding, type WeddingAnimation } from "../config/wedding";
 import { RevealContext } from "./RevealContext";
@@ -23,7 +24,7 @@ export function Reveal({
   const ref = useRef<HTMLDivElement>(null);
   const enabled = useContext(RevealContext);
   const viewport = useContext(InvitationViewportContext);
-  const reduced = useReducedMotion();
+  const { reduced } = useInvitationMotion();
   const [entered, setEntered] = useState(false);
   const [focused, setFocused] = useState(false);
   // Observe stationary geometry once the layout is ready, even behind the cover.

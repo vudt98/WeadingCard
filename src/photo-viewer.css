@@ -50,6 +50,3 @@
   .photo-viewer-thumbnails { gap: 12px; max-width: 80vw; padding: 12px 16px; margin-top: 16px; }
   .photo-viewer-thumbnails button { width: 64px; height: 64px; border-radius: 8px; }
 }
-@media (prefers-reduced-motion: reduce) {
-  .photo-viewer *, .photo-viewer { scroll-behavior: auto !important; transition: none !important; }
-}
