@@ -86,3 +86,11 @@ The reference music control uses `music-4.png`, a 30px disc at top/right 10px, w
 ## Responsive photo derivatives — 9 November 2026
 
 Local hero `images/anh-cuoi/dau-thiep/responsive/hero-{480,960,1440,2700}.jpg` and album `images/anh-cuoi/album/responsive/anh_{1..6}-{960,1920}.jpg` are resized from the existing user-supplied originals, with EXIF orientation applied, using `scripts/create-responsive-photos.ps1`. JPEG quality 88, bicubic sampling, no upscaling; original files are retained. No external image service is used.
+
+## Wedding gift artwork - 10 November 2026
+
+public/images/gifts/wedding-gift-3d.png: original AI-generated illustration created with OpenAI image generation for this project. Ivory gift box, olive satin ribbon, opaque cream/olive studio background. Stored locally and loaded through asset(); no third-party image request at runtime.
+
+## Vinyl music control - 10 November 2026
+
+public/images/music/vinyl-olive-3d.png: original AI-generated front-facing vinyl icon, charcoal grooves with an olive label and champagne ring, generated for this project with OpenAI image generation. Transparent PNG stored locally via asset(); replaces music-4.png in the active configuration. Original image retained.

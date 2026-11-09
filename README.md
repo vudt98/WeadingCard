@@ -105,10 +105,6 @@ GitHub Pages builds the committed source using `.github/workflows/deploy.yml`. C
 
 Saved reference HTML and `_files` folders, local audits, `node_modules/`, `dist/`, temporary manifests and unused assets are excluded by `.gitignore`. They are not needed by CI. The current entry point renders `MagazineInvitation`; the older `CrimsonInvitation` remains in source with its configured assets. Local font source records are described in `ASSET_CREDITS.md`; the historical local resource manifest is excluded from the deployment package.
 
-## RSVP with Google Forms
-
-The RSVP section supports a published Google Form embedded directly in the invitation, with an external responder link as fallback. Configure `wedding.rsvp.formUrl` and `embedHeight` in `src/config/wedding.ts`. Until a real responder URL is configured, the unavailable state remains. Google handles submissions and displays its own confirmation; the application never simulates a successful submission. See [RSVP_SETUP.md](RSVP_SETUP.md) for form questions, private response Sheet setup, and verification before deployment.
-
 ## GitHub Pages setup
 
 Before running the deploy workflow, open repository Settings → Pages → Build and deployment → Source and select **GitHub Actions**. This requires repository administrator or maintainer access. Then re-run the failed workflow from Actions (Re-run all jobs) or run Deploy wedding invitation to GitHub Pages manually. A 404 at Configure Pages means the Pages site is missing or inaccessible; updating application code does not enable the site.

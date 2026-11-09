@@ -55,7 +55,14 @@ export function MagazineInvitation({ guest, side, onSideChange }: {
       </section>
       <section className="magazine-story" aria-labelledby="story-title">
         <Reveal effect="zoomIn"><h2 id="story-title">{copy.storyTitle}</h2></Reveal>
-        <Reveal><div className="magazine-story-copy">{wedding.story.map(item => <p key={item.title}>{item.text}</p>)}</div></Reveal>
+        <ol className="magazine-story-chapters">
+          {wedding.story.map((item, index) => <li className="magazine-story-chapter" key={item.title}>
+            <Reveal effect="fadeInUpSmall" delay={0} duration={0.5}>
+              <h3><span className="magazine-story-order" aria-hidden="true"><span>{String(index + 1).padStart(2, "0")}</span></span><span>{item.title}</span></h3>
+              <p className="magazine-story-copy">{item.text}</p>
+            </Reveal>
+          </li>)}
+        </ol>
       </section>
       <section className="magazine-couple" aria-label={copy.coupleLabel}>
         <Reveal {...wedding.magazine.portraitAnimation}>
@@ -91,7 +98,7 @@ export function MagazineInvitation({ guest, side, onSideChange }: {
         </div>
       </section>
       <PhotoGallery />
-      <div className="magazine-rsvp"><Reveal><p className="magazine-rsvp-label">{copy.rsvpLabel}</p></Reveal><RSVPForm guest={guest} side={side} /></div>
+      <div className="magazine-rsvp"><RSVPForm guest={guest} side={side} /></div>
       <WeddingGift />
       <section className="magazine-countdown" aria-label={wedding.copy.countdown}>
         <Countdown date={wedding.countdown[side].dateTimeISO} />

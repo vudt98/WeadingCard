@@ -20,12 +20,13 @@
 .magazine-hero h1 { margin: min(0.8cqw, 4px) 0 min(1cqw, 5px); font-family: "Luxurious Script", cursive; font-size: clamp(38px, 12.8cqw, 64px); font-weight: 400; line-height: 1.3; overflow-wrap: anywhere; }
 .magazine-hero h1 span { white-space: nowrap; }
 .magazine-story { padding: min(5cqw, 25px) min(4cqw, 20px) min(6cqw, 30px); text-align: center; }
-.magazine-story h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: min(7.4cqw, 37px); font-weight: 500; line-height: 1.5; }
-.magazine-story-copy { font-family: "Be Vietnam Pro", sans-serif; font-size: 16px; font-weight: 400; line-height: 1.65; }
-.magazine-story-copy p + p { margin-top: min(1.5cqw, 7.5px); }
-@media (min-width: 768px) {
-  .magazine-story-copy { font-size: clamp(17px, 2.2cqw, 19px); }
-}
+.magazine-story h2 { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.75rem, 1.25rem + 2cqw, 2.25rem); font-weight: 500; line-height: 1.25; margin-bottom: clamp(16px, 3cqw, 20px); text-wrap: balance; }
+.magazine-story-copy { max-width: 48ch; margin-inline: auto; font-family: "Be Vietnam Pro", sans-serif; font-size: clamp(1rem, 0.95rem + 0.3cqw, 1.125rem); font-weight: 400; line-height: 1.7; text-align: left; overflow-wrap: anywhere; }
+.magazine-story-chapters { display: grid; gap: 22px; max-width: 52ch; margin: 24px auto 0; padding: 0; list-style: none; text-align: left; }
+.magazine-story-chapter { min-width: 0; padding-top: 14px; border-top: 1px solid #b4b28b80; }
+.magazine-story-chapter h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 6px; color: var(--accent); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.5rem, 1.25rem + 1cqw, 1.8125rem); font-weight: 500; line-height: 1.3; text-wrap: balance; }
+.magazine-story-order { display: grid; place-items: center; flex: 0 0 32px; width: 32px; height: 32px; padding: 0; border: 1px solid #b4b28b; border-radius: 50%; background: #eeeddf; color: var(--accent); font-family: "Be Vietnam Pro", sans-serif; font-size: 0.8125rem; font-weight: 500; line-height: 1; letter-spacing: 0; text-align: center; font-variant-numeric: lining-nums tabular-nums; }
+.magazine-story-order > span { display: block; transform: translateY(-0.5px); }
 .magazine-couple { padding: 0 clamp(20px, 6cqw, 40px) min(10cqw, 50px); }
 .magazine-couple-layout { display: grid; gap: clamp(12px, 3cqw, 20px); max-width: 520px; margin-inline: auto; }
 .magazine-couple-name { width: 80%; min-width: 0; color: var(--accent); }
@@ -43,7 +44,7 @@
 }
 .magazine-invitation { text-align: center; padding: 0 min(4cqw, 20px) min(6cqw, 30px); }
 .magazine-invite-label { text-transform: uppercase; font-size: clamp(14px, 4.2cqw, 21px); font-weight: 700; }
-.magazine-page .magazine-guest { font-family: "Cormorant Garamond", Georgia, serif; font-size: min(7cqw, 35px); font-weight: 500; color: var(--accent); line-height: 1.5; margin: min(5cqw, 25px) 0; overflow-wrap: anywhere; }
+.magazine-page .magazine-guest { font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.5rem, 7cqw, 2.1875rem); font-weight: 500; color: var(--accent); line-height: 1.5; margin: min(5cqw, 25px) 0; overflow-wrap: anywhere; }
 .magazine-invite-copy { font-size: clamp(14px, 3.8cqw, 19px); }
 .magazine-families { display: grid; grid-template-columns: 1fr 1fr; gap: min(4cqw, 20px); margin-top: min(6cqw, 30px); font-size: clamp(14px, 3.2cqw, 16px); }
 .magazine-families h3 { font-family: "Lora Regular", Georgia, serif; text-transform: uppercase; font-size: clamp(17px, 4cqw, 20px); font-weight: 700; margin-bottom: min(2cqw, 10px); }
@@ -57,15 +58,15 @@
   text-align: center; background: #fffaf3; border: 1px solid #d7d3bf; border-radius: 18px;
   box-shadow: 0 8px 24px #524a3f0c;
 }
-.magazine-event h2 { font-family: "Lora Regular", Georgia, serif; text-transform: uppercase; font-weight: 700; font-size: min(4.6cqw, 23px); line-height: 1.5; margin-bottom: min(1.2cqw, 6px); }
+.magazine-event h2 { font-family: "Lora Regular", Georgia, serif; text-transform: uppercase; font-weight: 700; font-size: clamp(1.0625rem, 4.6cqw, 1.4375rem); line-height: 1.5; margin-bottom: min(1.2cqw, 6px); }
 .magazine-event p { font-size: clamp(14px, 3.8cqw, 19px); line-height: 1.6; }
 .magazine-event .magazine-event-time { font-size: clamp(14px, 4.2cqw, 21px); text-transform: uppercase; line-height: 1.5; }
 .magazine-date { display: grid; grid-template-columns: 28fr 22fr 28fr; gap: 4%; align-items: center; margin: min(3cqw, 15px) min(3.5cqw, 17.5px) min(1cqw, 5px); }
 .magazine-event .magazine-date { margin-inline: 0; }
 .magazine-date span { display: block; width: 100%; border-block: 1px solid var(--ink); padding-block: min(0.6cqw, 3px); text-transform: uppercase; white-space: nowrap; font-size: clamp(12px, 4.6cqw, 23px); line-height: 1.5; }
 .magazine-date strong { display: block; font-family: "Alisheia", Georgia, serif; font-size: min(18.6cqw, 93px); font-weight: 400; line-height: 1; }
-.magazine-event .magazine-lunar { margin-bottom: min(3cqw, 15px); font-size: min(3.8cqw, 19px); font-style: italic; }
-.magazine-event h3 { font-family: "Lora Regular", Georgia, serif; font-size: min(4.2cqw, 21px); text-transform: uppercase; line-height: 1.5; font-weight: 700; margin-top: min(3cqw, 15px); }
+.magazine-event .magazine-lunar { margin-bottom: min(3cqw, 15px); font-size: clamp(0.875rem, 3.8cqw, 1.1875rem); font-style: italic; }
+.magazine-event h3 { font-family: "Lora Regular", Georgia, serif; font-size: clamp(1rem, 4.2cqw, 1.3125rem); text-transform: uppercase; line-height: 1.5; font-weight: 700; margin-top: min(3cqw, 15px); overflow-wrap: anywhere; }
 .magazine-event .magazine-address { margin: min(2cqw, 10px) 0 min(3.5cqw, 17.5px); }
 .magazine-map { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; min-width: min(54cqw, 270px); max-width: 100%; padding: 12px 24px; border: 1px solid #77764f; border-radius: 999px; background: linear-gradient(135deg, #77764f, #5c6040); color: #fffdf7; box-shadow: 0 4px 12px #524a3f24, inset 0 1px #ffffff30; text-decoration: none; text-transform: uppercase; letter-spacing: 0.06em; font-size: clamp(14px, 3.2cqw, 15px); transition: transform 180ms ease, box-shadow 180ms ease; }
 @keyframes map-olive-pulse {
@@ -84,8 +85,8 @@
 .magazine-calendar { text-align: center; padding: min(9cqw, 45px) 0 min(4cqw, 20px); }
 .magazine-calendar-frame { position: relative; isolation: isolate; max-width: 500px; margin-inline: auto; padding: min(0.6cqw, 3px) min(7cqw, 35px) min(5cqw, 25px); }
 .magazine-calendar-background { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: fill; }
-.magazine-calendar .calendar-title { color: white; font-family: "Luxurious Script", cursive; font-size: min(9.4cqw, 47px); line-height: 1.5; }
-.magazine-calendar .calendar-title span { font-size: min(4cqw, 20px); }
+.magazine-calendar .calendar-title { color: white; font-family: "Luxurious Script", cursive; font-size: clamp(1.875rem, 9.4cqw, 2.9375rem); line-height: 1.5; }
+.magazine-calendar .calendar-title span { font-size: clamp(0.875rem, 4cqw, 1.25rem); }
 .magazine-calendar .wedding-calendar { width: 100%; margin: 0; table-layout: fixed; border-collapse: collapse; font-size: min(3.6cqw, 18px); }
 .magazine-calendar .wedding-calendar th { color: var(--ink); padding: min(2cqw, 10px) 0; font-weight: 400; }
 .magazine-calendar .wedding-calendar td { height: min(10.4cqw, 52px); padding: 0; }
@@ -98,15 +99,9 @@
 .magazine-page .gallery-heading h2 { color: white; }
 .magazine-page .gallery-heading .eyebrow { color: var(--ink); }
 .magazine-rsvp { padding: min(7cqw, 35px) min(6cqw, 30px) 0; text-align: center; }
-.magazine-rsvp-label { font-size: min(7cqw, 35px); letter-spacing: 0.12em; }
 .magazine-page .rsvp-section { padding: min(3cqw, 15px) 0 0; }
 .magazine-page .rsvp-section .section-description { font-size: clamp(14px, 3.6cqw, 18px); color: var(--ink); white-space: normal; }
 .magazine-page .crimson-rsvp-status { width: 100%; margin: min(4cqw, 20px) 0 0; }
-.rsvp-google-form { width: 100%; min-width: 0; margin-top: 20px; }
-.rsvp-form-frame { display: block; width: 100%; max-width: 100%; border: 0; border-radius: 12px; background: #fff; }
-.rsvp-privacy-note, .rsvp-fallback-note { font-size: 14px; line-height: 1.7; margin: 14px 0; color: var(--ink); }
-.rsvp-form-link { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 10px 18px; border: 1px solid currentColor; border-radius: 24px; color: var(--ink); font: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.rsvp-form-link:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 .magazine-page .availability-note { min-height: 0; padding: min(5cqw, 25px); border: 1px solid #d8d4c8; border-radius: 3px; background: transparent; box-shadow: none; gap: min(2cqw, 10px); }
 .magazine-page .availability-note strong { font-size: clamp(14px, 3.6cqw, 18px); color: var(--ink); }
 .magazine-page .availability-note p { font-size: clamp(14px, 3cqw, 15px); color: var(--ink); }
@@ -114,11 +109,11 @@
 .magazine-page .gift-section { background: transparent; padding: min(7cqw, 35px) 0; text-align: center; }
 .magazine-page .gift-box { width: 75%; margin: auto; padding: 10px 15px; background: #b4b28b; color: #26291d; font-size: clamp(14px, 3.6cqw, 18px); line-height: 1.6; min-height: 44px; border-radius: 999px; }
 .magazine-page .gift-box:hover { background: #b4b28b; }
-.magazine-countdown { padding: min(3cqw, 15px) min(8cqw, 40px) min(8cqw, 40px); text-align: center; }
-.magazine-countdown .countdown-wrap > p { font-size: 14px; margin-bottom: min(3cqw, 15px); }
+.magazine-countdown { padding: clamp(28px, 7cqw, 40px) min(8cqw, 40px) min(8cqw, 40px); text-align: center; }
+.magazine-countdown .countdown-wrap > p { max-width: 28ch; margin: 0 auto 18px; color: var(--ink); font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(22px, 5.5cqw, 28px); font-weight: 500; line-height: 1.35; text-wrap: balance; }
 .magazine-countdown .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: min(2cqw, 10px); }
 .magazine-countdown .countdown > div { background: #524a3f; border: 0; border-radius: min(2.3cqw, 11.5px); padding: min(3cqw, 15px) 0; }
-.magazine-countdown .countdown strong { display: block; font-size: min(5cqw, 25px); color: white; }
+.magazine-countdown .countdown strong { display: block; font-size: clamp(1.375rem, 5cqw, 1.75rem); font-variant-numeric: tabular-nums; color: white; }
 .magazine-countdown .countdown span { display: block; font-size: 14px; color: white; letter-spacing: 0; margin-top: min(1cqw, 5px); }
 .magazine-page .magazine-reminder { font-family: "UTM Edwardian", "Luxurious Script", cursive; font-size: min(9.8cqw, 49px); margin-top: min(3cqw, 15px); line-height: 1.5; }
 .magazine-footer { position: relative; isolation: isolate; overflow: clip; text-align: center; color: white; }
@@ -130,6 +125,11 @@
 .magazine-hero-copy { max-width: 600px; margin-inline: auto; }
 .magazine-story, .magazine-invitation, .magazine-rsvp, .magazine-footer-copy {
   width: 100%; max-width: 560px; margin-inline: auto;
+}
+@media (min-width: 768px) {
+  .magazine-page .magazine-story { max-width: 740px; padding-inline: 28px; }
+  .magazine-story h2 { max-width: 18ch; margin-inline: auto; }
+  .magazine-story-chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 32px; max-width: none; }
 }
 .magazine-couple { width: 100%; max-width: 680px; margin-inline: auto; }
 .magazine-calendar-inner { width: 100%; margin-inline: auto; }

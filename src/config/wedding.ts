@@ -26,16 +26,6 @@ const giftAccounts: WeddingGiftAccount[] = content.gifts;
 const dressCode: { name: string; color: string }[] = content.dressCode;
 export const wedding = {
   rsvp: {
-    // Paste the full responder URL (https://docs.google.com/forms/d/e/.../viewform).
-    // Leave empty until a real form is published and connected to its response Sheet.
-    formUrl: "",
-    embedHeight: 1100,
-    introText: "Hồi âm để chúng mình đón tiếp bạn chu đáo hơn.",
-    frameTitle: "Xác nhận tham dự đám cưới Tuấn Vũ và Tuyết Mai",
-    fallbackText: "Nếu biểu mẫu không hiển thị hoặc khó thao tác, bạn có thể mở riêng tại đây.",
-    openLabel: "Mở form xác nhận",
-    newTabLabel: "mở trong tab mới",
-    formPrivacyNote: "Phản hồi được gửi qua Google Forms. Gia đình sử dụng thông tin để chuẩn bị đón tiếp khách mời.",
     endpoint: import.meta.env.VITE_RSVP_SCRIPT_URL?.trim() ?? "",
     title: "Xác nhận tham dự",
     introduction: "Hồi âm để chúng mình đón tiếp bạn chu đáo hơn.",
@@ -61,6 +51,7 @@ export const wedding = {
     unavailableNote: "Form chưa mở tiếp nhận. Thông tin bạn điền chưa được gửi hoặc lưu lại.",
   },
   giftSettings: {
+    image: asset("images/gifts/wedding-gift-3d.png"),
     title: "Hộp quà yêu thương",
     description: "Sự hiện diện của bạn là món quà quý giá nhất với chúng mình.",
     openLabel: "Gửi chút yêu thương",
@@ -93,7 +84,7 @@ export const wedding = {
   countdown: content.countdown,
   musicSettings: {
     albumErrorMessage: "Chưa phát được nhạc album. Thiệp đang thử tiếp tục nhạc nền; bạn có thể dùng nút nhạc để phát lại.",
-    icon: asset("images/music/music-4.png"),
+    icon: asset("images/music/vinyl-olive-3d.png"),
     autoPlayAfterOpen: true,
     volume: 0.28,
     openingFadeInMs: 2500,
@@ -116,7 +107,6 @@ export const wedding = {
   monogram: content.monogram,
   signature: content.signature,
   hashtag: content.hashtag,
-
   copy: {
     ...content.copy,
     rsvpText: "",
@@ -216,10 +206,26 @@ export const wedding = {
       storyTitle: "Hai Trái Tim, Một Hành Trình",
       coupleLabel: "Cô dâu và chú rể",
       sideLabel: "Chọn bên mời",
-      rsvpLabel: "R.S.V.P.",
       reminder: "Đừng quên mình có hẹn nhé!",
     },
   },
   events: content.events satisfies Record<WeddingSide, WeddingEvent>,
-  story: content.story,
+  story: [
+    {
+      title: "Gặp gỡ",
+      text: "Chuyện chúng mình bắt đầu vào một buổi chiều Chủ nhật, từ một tin nhắn hỏi thăm giản đơn. Chẳng ai ngờ vài dòng chữ nhỏ bé hôm ấy lại mở đầu cho một câu chuyện đặc biệt đến thế.",
+    },
+    {
+      title: "Thương nhau",
+      text: "Những cuộc hẹn sau giờ làm, những câu chuyện vu vơ và tiếng cười vì đôi điều ngốc nghếch cứ thế nối dài. Chẳng biết từ bao giờ, gặp nhau đã trở thành điều cả hai mong chờ mỗi ngày.",
+    },
+    {
+      title: "Lạc nhịp",
+      text: "Đã có lúc, những điều chưa nói thành lời khiến chúng mình lạc mất nhau một đoạn đường. Tưởng câu chuyện đã khép lại, nhưng trong tim mỗi người vẫn còn một chỗ cho đối phương. Sau những tháng ngày xa cách, chúng mình tìm thấy nhau, khi đã hiểu hơn điều thực sự muốn giữ lấy.",
+    },
+    {
+      title: "Chung một hành trình",
+      text: "Sau tất cả, chúng mình chọn nắm tay nhau thêm một lần nữa, để viết tiếp câu chuyện còn dang dở. Lần này, là một mái nhà, một lời hẹn ước và hành trình phía trước — nơi chúng mình chọn có nhau, mỗi ngày.",
+    },
+  ],
 };

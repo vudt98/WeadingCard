@@ -1,7 +1,7 @@
 ﻿import { useInvitationMotion } from "../hooks/useInvitationMotion";
 import { useCallback, useContext, useEffect, useState } from "react";
 
-import { ArrowDownToLine, Pause, Play } from "lucide-react";
+import { ArrowDownToLine, ChevronsDown, Pause } from "lucide-react";
 import { wedding } from "../config/wedding";
 import { advanceScroll } from "../utils/autoScroll";
 import { InvitationViewportContext } from "./InvitationViewportContext";
@@ -113,7 +113,7 @@ export function AutoScrollControl() {
         else if (!running) setRunning(true);
       }}
     >
-      {reduced ? <ArrowDownToLine size={18} /> : running ? <Pause size={18} /> : <Play size={18} />}
+      {reduced ? <ArrowDownToLine size={18} aria-hidden="true" /> : running ? <Pause size={18} aria-hidden="true" /> : <ChevronsDown size={20} aria-hidden="true" />}
       <span className="sr-only">{label}</span>
     </button>
   );

@@ -38,7 +38,7 @@ export const MusicPlayer = forwardRef<MusicPlayerHandle, { opened: boolean }>(fu
       <button type="button" data-music-control className={`music-button${state.playing ? " playing" : ""}`}
         onClick={() => session.current?.toggle()} aria-label={state.playing ? config.stopLabel : config.startLabel}
         title={state.playing ? config.stopLabel : config.startLabel} aria-pressed={state.playing} aria-describedby={error ? "music-status" : undefined}>
-        <span className="music-disc" aria-hidden="true"><img src={config.icon} alt="" width="30" height="30" draggable={false} /></span>
+        <span className="music-disc" aria-hidden="true"><img src={config.icon} alt="" width="48" height="48" decoding="async" draggable={false} /></span>
         {!state.playing && <span className="music-off-mark" aria-hidden="true" />}
       </button>
       {error && <p id="music-status" role="status">{error}</p>}

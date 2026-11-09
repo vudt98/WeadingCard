@@ -1,5 +1,5 @@
 ﻿import { useCallback, useId, useRef, useState, useSyncExternalStore } from "react";
-import { ArrowUpRight, Copy, Download, Gift, QrCode, X } from "lucide-react";
+import { ArrowUpRight, Copy, Download, QrCode, X } from "lucide-react";
 import { wedding, type WeddingGiftAccount } from "../config/wedding";
 import { useModal } from "../hooks/useModal";
 import { Reveal } from "./Reveal";
@@ -93,10 +93,12 @@ export function WeddingGift() {
   return <section className="gift-section section-shell" id="qua-mung" aria-labelledby="gift-section-title">
     <Reveal delay={0}>
       <div className="gift-love-card">
-        <span className="gift-love-icon" aria-hidden="true"><Gift size={42} strokeWidth={1} /></span>
+        <img className="gift-love-art" src={copy.image} alt="" width="1536" height="1024" loading="lazy" decoding="async" />
+        <div className="gift-love-content">
         <h2 id="gift-section-title">{copy.title}</h2>
         <p>{copy.description}</p>
         <button type="button" className="gift-open" onClick={() => setOpen(true)} aria-haspopup="dialog">{copy.openLabel}<ArrowUpRight size={17} aria-hidden="true" /></button>
+        </div>
       </div>
     </Reveal>
     {open && <InvitationPortal><GiftDialog close={close} /></InvitationPortal>}

@@ -603,16 +603,96 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - [x] Validate the selected Git index in `artifacts/deploy-staging/`: typecheck, lint, all 58 tests and production build pass. All 43 public images and 7 local stylesheet fonts are present; both configured audio files are present; excluded assets are absent from the build. No credential patterns found in selected text files. Public assets total 164.59 MB; largest file 21.69 MB.
 - Delivery target: commit this reviewed source package and push to `origin/main`; confirm the remote commit matches local HEAD. Git history records the resulting commit.
 
-## Embedded Google Forms RSVP — 9 November 2026
+## RSVP baseline cleanup - 9 November 2026
 
-- [x] Add configurable respondent URL, frame height, accessible title, introduction, privacy note and external fallback link in `src/config/wedding.ts`.
-- [x] Render a lazy Google Forms iframe only for a valid HTTPS Google responder URL; retain the unavailable state while no real form is configured. Do not simulate success or infer a submission from iframe loading.
-- [x] Add responsive frame styling and a keyboard-visible fallback link; document Forms/Sheets setup and end-to-end validation in RSVP_SETUP.md.
-- [x] Typecheck, lint, all 69 tests and production build pass. End-to-end submission and visual verification with the actual form remain pending the Google connection and real responder URL.
-- [ ] Connect the owner's Google account, create/publish the real Form and private linked Sheet, configure its responder URL and verify a labeled test response before deployment. Google Drive connection is currently pending; no cloud file has been created.
+- [x] Use commit c09aa0c as the RSVP baseline: native form, guest and invitation side, validated Apps Script endpoint, acknowledged saves, and retry deduplication.
+- [x] Restore RSVPForm.tsx, wedding.ts and magazine.css to that baseline; remove the competing Google Forms embed, URL utility, tests, styles, configuration and setup guide.
+- [x] Keep GOOGLE_SHEETS_RSVP.md as the setup guide and preserve the remote gift and motion updates. No cloud configuration or deployment performed.
+- [x] Typecheck, lint, all 74 tests and production build pass after cleanup. RSVP source, configuration, styles, transport and backend match c09aa0c.
 
-## Merge remote updates ? 9 November 2026
+## Local RSVP connection - 9 November 2026
 
-- Preserve the remote direct RSVP form and its guest/side inputs; use the optional Google Forms embed when a valid responder URL is configured. Both integrations remain unconfigured by default.
-- Combine RSVP configuration without duplicate keys; keep each integration privacy copy.
-- Validation after merge: typecheck, lint, all 85 tests and production build pass.
+- [x] Configure the supplied public Apps Script /exec URL in ignored .env.local for local testing.
+- [x] Confirm unauthenticated GET reaches the RSVP endpoint without Google sign-in.
+- [x] Typecheck, lint, all 74 tests and production build pass. Restart preview at http://127.0.0.1:4173/ with the configured endpoint.
+- Sheet writes require ALLOWED_ORIGINS to include http://127.0.0.1:4173 in Apps Script. Real response persistence has not been tested in this step.
+
+## Floating controls - 9 November 2026
+
+- [x] Inset the music disc from the top-right card edge on tablet and desktop, enlarge its target to 52px and disc to 36px, and align its status message below it.
+- [x] Replace the auto-scroll Play triangle with ChevronsDown; preserve Pause, keyboard labels and reduced-motion behavior.
+- [x] Typecheck, lint, all 74 tests and build pass; restart local preview. Browser automation host was unavailable, so visual verification remains manual.
+
+## Balance floating controls - 9 November 2026
+
+- [x] Share control dimensions and edge inset: 44px / 12px on phones, 48px / 20px on tablet and desktop. Align both controls along the same top edge with mirrored left/right placement.
+- [x] Give both controls the same burgundy background, gold border, circular shape, shadow and focus treatment; center the music disc and off mark inside its target.
+- [x] Typecheck, lint, all 74 tests and production build pass; restart local preview. Visual browser verification remains unavailable.
+
+## Disc and section typography - 9 November 2026
+
+- [x] Remove the music control background, border and shadow; scale the disc to the same 44px/48px diameter as the scroll control.
+- [x] Remove the decorative R.S.V.P. label and unused config/style. Keep the accessible form heading.
+- [x] Restyle the countdown introduction with centered serif typography, balanced wrapping and additional spacing above.
+- [x] Typecheck, lint, all 74 tests and build pass; restart local preview. Visual verification remains manual because browser automation is unavailable.
+
+## Responsive typography - 10 November 2026
+
+- [x] Give the story a fluid 16-18px body, left alignment, 1.8 line height, balanced 28-36px heading and clear paragraph spacing.
+- [x] Add minimum font sizes for the guest name, event headings, venue, lunar date and calendar title/year; strengthen countdown numbers with tabular figures.
+- [x] Increase RSVP and gift supporting copy and action labels with bounded responsive sizes; emphasize account numbers and keep input text at 16px.
+- [x] Typecheck, lint, all 74 tests and production build pass; local preview restarted. Visual verification at phone/desktop sizes remains manual because the browser automation host is unavailable.
+
+## 3D wedding gift card - 10 November 2026
+
+- [x] Replace the small outline gift icon with original generated 3D artwork and an ivory/olive background matching the invitation palette.
+- [x] Keep the image local, configure its URL in wedding.ts through asset(), reserve its aspect ratio and lazy-load it as decorative artwork.
+- [x] Use an image banner above a separate readable content area; preserve the gift dialog, keyboard access and reduced-motion behavior.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview restarted. Generated artwork visually inspected; full browser layout verification remains manual because the browser automation host is unavailable.
+
+## Vinyl music control - 10 November 2026
+
+- [x] Generate and inspect a front-facing 3D vinyl icon with transparent background, charcoal grooves and olive/champagne center.
+- [x] Store the image locally via asset(), retain 44/48px control size, preserve play/pause behavior and reduced-motion preference; add a stationary subtle shadow to the button.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted. Artwork inspected; full visual browser verification remains manual.
+
+## Four emotional story chapters - 10 November 2026
+
+- [x] Replace the sample story with the supplied four paragraphs, preserving the wording in wedding.ts and removing the old sample years/text from JSON.
+- [x] Present four named chapters in an ordered list with subtle olive connecting lines, small ordinal markers, serif headings and readable left-aligned prose.
+- [x] Reveal each chapter individually while honoring reduced motion; use fluid sizes and spacing on narrow and wide screens.
+- [x] Typecheck, lint, all 74 tests and production build pass; preview restarted. Full visual browser verification remains manual.
+
+## Compact story - 10 November 2026
+
+- [x] Condense each of the four chapters to one or two sentences, preserving the Sunday message, growing affection, separation/reunion and shared-home ending.
+- [x] Tighten chapter and heading spacing and set body line-height to 1.7 while retaining readable font sizes and the four-part timeline.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted. Visual layout verification remains manual.
+
+## Story editorial refinement - 10 November 2026
+
+- [x] Restore enough detail to explain the Sunday message, daily affection, unspoken feelings, separation, reunion and commitment in four moderately condensed chapters.
+- [x] Remove the numbered timeline rail to reclaim mobile text width. Use subtle horizontal dividers and a single reading column on phones; a 2-by-2 editorial grid on tablet and desktop.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted. Full visual browser verification remains manual.
+
+## Story heading order - 10 November 2026
+
+- [x] Add inline 01-04 numbering before story chapter headings without introducing a side column; retain the ordered list and responsive layout.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted.
+
+## Story index circles - 10 November 2026
+
+- [x] Place story indexes in centered 32px circles with subtle olive borders and a pale background.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted.
+
+## Story index alignment - 10 November 2026
+
+- [x] Use a fixed non-shrinking circle and flex-aligned chapter headings. Isolate the lining/tabular digits and apply a -0.5px optical vertical adjustment.
+- Browser/native UI hosts are unavailable, so pixel-level visual verification is pending.
+- [x] Typecheck, lint, all 74 tests and build pass; preview restarted.
+
+## Publish invitation update - 10 November 2026
+
+- Local validation: typecheck, lint, all 74 tests and production build passed for the final UI changes.
+- Configure GitHub Actions repository variable RSVP_SCRIPT_URL with the supplied public Apps Script endpoint; read back and verify the value. Keep .env.local ignored.
+- Publish the four-part story, responsive typography, balanced controls, original gift/vinyl artwork and native RSVP cleanup through the existing main-branch Pages workflow. Deployment status and commit are recorded in GitHub Actions.
