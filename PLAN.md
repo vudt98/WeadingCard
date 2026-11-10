@@ -703,4 +703,10 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - [x] Replace stale sample names in page title and sharing metadata with Tuấn Vũ & Tuyết Mai. Generate escaped HTML metadata during development/build from the same wedding content configuration; include Open Graph and Twitter text fields for crawlers without JavaScript.
 - [x] Typecheck, lint, all 74 tests and production build pass. Verify all six title/description metadata fields in built HTML and absence of sample names/placeholders.
 - [x] Start production preview at http://127.0.0.1:4173/ and verify HTTP 200 and correct UTF-8 metadata.
-- Deployment requested: push the verified changes through the existing main-branch GitHub Pages workflow and check the published HTML. Full visual browser verification remains pending.
+- [x] Deploy commit `5e2788a` through GitHub Pages: build and deploy succeeded in https://github.com/vudt98/WeadingCard/actions/runs/42767027957. Public website returns HTTP 200 with the correct couple names and updated story CSS. Open local preview in the default browser. Full visual browser verification remains pending.
+
+## Further compact story typography - 10 November 2026
+
+- [x] Reduce story prose by another 0.5px to a fluid 14.5–15.5px at the default root size and set line height to 1.65. Retain chapter headings and rem-based text scaling.
+- [x] Typecheck, lint, all 74 tests and production build pass. Stop the previous preview and rebuild after a transient output-directory lock; restart preview with the updated build.
+- [ ] Deploy through the existing GitHub Pages workflow and verify the published CSS.
