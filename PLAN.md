@@ -696,3 +696,11 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - Local validation: typecheck, lint, all 74 tests and production build passed for the final UI changes.
 - Configure GitHub Actions repository variable RSVP_SCRIPT_URL with the supplied public Apps Script endpoint; read back and verify the value. Keep .env.local ignored.
 - Publish the four-part story, responsive typography, balanced controls, original gift/vinyl artwork and native RSVP cleanup through the existing main-branch Pages workflow. Deployment status and commit are recorded in GitHub Actions.
+
+## Story text sizing and link preview names - 10 November 2026
+
+- [x] Reduce story prose by about 1px to a fluid 15–16px at the default root size; retain 1.7 line height, chapter headings and accessible reading order.
+- [x] Replace stale sample names in page title and sharing metadata with Tuấn Vũ & Tuyết Mai. Generate escaped HTML metadata during development/build from the same wedding content configuration; include Open Graph and Twitter text fields for crawlers without JavaScript.
+- [x] Typecheck, lint, all 74 tests and production build pass. Verify all six title/description metadata fields in built HTML and absence of sample names/placeholders.
+- [x] Start production preview at http://127.0.0.1:4173/ and verify HTTP 200 and correct UTF-8 metadata.
+- Deployment requested: push the verified changes through the existing main-branch GitHub Pages workflow and check the published HTML. Full visual browser verification remains pending.
