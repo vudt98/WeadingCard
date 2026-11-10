@@ -710,3 +710,14 @@ Real names, wedding dates/locations, personal photos and optional music; GitHub 
 - [x] Reduce story prose by another 0.5px to a fluid 14.5–15.5px at the default root size and set line height to 1.65. Retain chapter headings and rem-based text scaling.
 - [x] Typecheck, lint, all 74 tests and production build pass. Stop the previous preview and rebuild after a transient output-directory lock; restart preview with the updated build.
 - [x] Deploy commit `5bfcefd` successfully through https://github.com/vudt98/WeadingCard/actions/runs/42768230279. Verify public HTTP 200 and published `index-CN1iOC6b.css` with the new font range and 1.65 line height; local preview is running at http://127.0.0.1:4173/.
+
+## Story prose 13-14px - 10 November 2026
+
+- [x] Set story prose to a fluid 13-14px at the default root size using rem and container width; preserve 1.65 line height and chapter headings.
+- [x] Typecheck, lint, all 74 tests and production build pass.
+
+## Publish gift accounts and story size - 10 November 2026
+
+- [x] Include the configured bride/groom gift accounts and both local QR images; verify both configured image paths exist.
+- [x] Typecheck, lint, all 74 tests and production build pass for the complete update.
+- Push main to trigger the existing GitHub Pages deployment workflow.

@@ -143,5 +143,20 @@
     "guestbookLabel": "SỔ LƯU BÚT",
     "calendarDescription": "Rất mong được đón tiếp bạn trong ngày vui của chúng mình. (Thông tin thiệp mẫu)"
   },
-  "gifts": []
+  "gifts": [
+    {
+      "label": "Chú rể",
+      "bank": "Ngân hàng ACB",
+      "accountName": "DUONG TUAN VU",
+      "accountNumber": "1047991",
+      "qrImage": "images/gifts/QR_chu_re.jpg"
+    },
+    {
+      "label": "Cô dâu",
+      "bank": "Ngân hàng Quân Đội (MB)",
+      "accountName": "TRAN THI TUYET MAI",
+      "accountNumber": "2402034248026",
+      "qrImage": "images/gifts/QR_co_dau.jpg"
+    }
+  ]
 }
